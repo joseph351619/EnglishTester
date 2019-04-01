@@ -9,6 +9,9 @@ namespace EnglishTester.DAL
 {
     public class AnswersDAL:DALBase<Answers>
     {
-
+        public void QuestionNoIs(int questionNo)
+        {
+            Data = Data.Where(a => a.QuestionNo == questionNo);
+        }
     }
 }

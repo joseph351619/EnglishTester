@@ -36,16 +36,19 @@
             this.txtAnswer3 = new System.Windows.Forms.TextBox();
             this.txtAnswer4 = new System.Windows.Forms.TextBox();
             this.btnStore = new System.Windows.Forms.Button();
-            this.cboAnswer1 = new System.Windows.Forms.CheckBox();
-            this.cboAnswer2 = new System.Windows.Forms.CheckBox();
-            this.cboAnswer3 = new System.Windows.Forms.CheckBox();
-            this.cboAnswer4 = new System.Windows.Forms.CheckBox();
             this.rdoAnswer1 = new System.Windows.Forms.RadioButton();
             this.rdoAnswer2 = new System.Windows.Forms.RadioButton();
             this.rdoAnswer3 = new System.Windows.Forms.RadioButton();
             this.rdoAnswer4 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.txtQuestionExplanation = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.txtAnswerExplanation1 = new System.Windows.Forms.TextBox();
+            this.txtAnswerExplanation2 = new System.Windows.Forms.TextBox();
+            this.txtAnswerExplanation3 = new System.Windows.Forms.TextBox();
+            this.txtAnswerExplanation4 = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -76,35 +79,35 @@
             // 
             // txtAnswer1
             // 
-            this.txtAnswer1.Location = new System.Drawing.Point(127, 293);
+            this.txtAnswer1.Location = new System.Drawing.Point(117, 323);
             this.txtAnswer1.Name = "txtAnswer1";
             this.txtAnswer1.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer1.TabIndex = 3;
             // 
             // txtAnswer2
             // 
-            this.txtAnswer2.Location = new System.Drawing.Point(288, 293);
+            this.txtAnswer2.Location = new System.Drawing.Point(278, 323);
             this.txtAnswer2.Name = "txtAnswer2";
             this.txtAnswer2.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer2.TabIndex = 4;
             // 
             // txtAnswer3
             // 
-            this.txtAnswer3.Location = new System.Drawing.Point(474, 293);
+            this.txtAnswer3.Location = new System.Drawing.Point(464, 323);
             this.txtAnswer3.Name = "txtAnswer3";
             this.txtAnswer3.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer3.TabIndex = 5;
             // 
             // txtAnswer4
             // 
-            this.txtAnswer4.Location = new System.Drawing.Point(673, 290);
+            this.txtAnswer4.Location = new System.Drawing.Point(663, 320);
             this.txtAnswer4.Name = "txtAnswer4";
             this.txtAnswer4.Size = new System.Drawing.Size(100, 22);
             this.txtAnswer4.TabIndex = 6;
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(673, 392);
+            this.btnStore.Location = new System.Drawing.Point(713, 415);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(75, 23);
             this.btnStore.TabIndex = 7;
@@ -112,46 +115,10 @@
             this.btnStore.UseVisualStyleBackColor = true;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
             // 
-            // cboAnswer1
-            // 
-            this.cboAnswer1.AutoSize = true;
-            this.cboAnswer1.Location = new System.Drawing.Point(127, 271);
-            this.cboAnswer1.Name = "cboAnswer1";
-            this.cboAnswer1.Size = new System.Drawing.Size(15, 14);
-            this.cboAnswer1.TabIndex = 8;
-            this.cboAnswer1.UseVisualStyleBackColor = true;
-            // 
-            // cboAnswer2
-            // 
-            this.cboAnswer2.AutoSize = true;
-            this.cboAnswer2.Location = new System.Drawing.Point(288, 258);
-            this.cboAnswer2.Name = "cboAnswer2";
-            this.cboAnswer2.Size = new System.Drawing.Size(15, 14);
-            this.cboAnswer2.TabIndex = 9;
-            this.cboAnswer2.UseVisualStyleBackColor = true;
-            // 
-            // cboAnswer3
-            // 
-            this.cboAnswer3.AutoSize = true;
-            this.cboAnswer3.Location = new System.Drawing.Point(474, 258);
-            this.cboAnswer3.Name = "cboAnswer3";
-            this.cboAnswer3.Size = new System.Drawing.Size(15, 14);
-            this.cboAnswer3.TabIndex = 10;
-            this.cboAnswer3.UseVisualStyleBackColor = true;
-            // 
-            // cboAnswer4
-            // 
-            this.cboAnswer4.AutoSize = true;
-            this.cboAnswer4.Location = new System.Drawing.Point(673, 258);
-            this.cboAnswer4.Name = "cboAnswer4";
-            this.cboAnswer4.Size = new System.Drawing.Size(15, 14);
-            this.cboAnswer4.TabIndex = 11;
-            this.cboAnswer4.UseVisualStyleBackColor = true;
-            // 
             // rdoAnswer1
             // 
             this.rdoAnswer1.AutoSize = true;
-            this.rdoAnswer1.Location = new System.Drawing.Point(127, 239);
+            this.rdoAnswer1.Location = new System.Drawing.Point(117, 304);
             this.rdoAnswer1.Name = "rdoAnswer1";
             this.rdoAnswer1.Size = new System.Drawing.Size(14, 13);
             this.rdoAnswer1.TabIndex = 13;
@@ -161,7 +128,7 @@
             // rdoAnswer2
             // 
             this.rdoAnswer2.AutoSize = true;
-            this.rdoAnswer2.Location = new System.Drawing.Point(289, 239);
+            this.rdoAnswer2.Location = new System.Drawing.Point(279, 304);
             this.rdoAnswer2.Name = "rdoAnswer2";
             this.rdoAnswer2.Size = new System.Drawing.Size(14, 13);
             this.rdoAnswer2.TabIndex = 14;
@@ -171,7 +138,7 @@
             // rdoAnswer3
             // 
             this.rdoAnswer3.AutoSize = true;
-            this.rdoAnswer3.Location = new System.Drawing.Point(474, 239);
+            this.rdoAnswer3.Location = new System.Drawing.Point(464, 304);
             this.rdoAnswer3.Name = "rdoAnswer3";
             this.rdoAnswer3.Size = new System.Drawing.Size(14, 13);
             this.rdoAnswer3.TabIndex = 15;
@@ -181,7 +148,7 @@
             // rdoAnswer4
             // 
             this.rdoAnswer4.AutoSize = true;
-            this.rdoAnswer4.Location = new System.Drawing.Point(673, 239);
+            this.rdoAnswer4.Location = new System.Drawing.Point(663, 304);
             this.rdoAnswer4.Name = "rdoAnswer4";
             this.rdoAnswer4.Size = new System.Drawing.Size(14, 13);
             this.rdoAnswer4.TabIndex = 16;
@@ -200,26 +167,83 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(137, 150);
+            this.panel1.Location = new System.Drawing.Point(127, 150);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(623, 53);
+            this.panel1.Size = new System.Drawing.Size(646, 53);
             this.panel1.TabIndex = 18;
+            // 
+            // txtQuestionExplanation
+            // 
+            this.txtQuestionExplanation.Location = new System.Drawing.Point(127, 235);
+            this.txtQuestionExplanation.Multiline = true;
+            this.txtQuestionExplanation.Name = "txtQuestionExplanation";
+            this.txtQuestionExplanation.Size = new System.Drawing.Size(636, 48);
+            this.txtQuestionExplanation.TabIndex = 19;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(25, 235);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 12);
+            this.label3.TabIndex = 20;
+            this.label3.Text = "題目解答說明";
+            // 
+            // txtAnswerExplanation1
+            // 
+            this.txtAnswerExplanation1.Location = new System.Drawing.Point(117, 371);
+            this.txtAnswerExplanation1.Name = "txtAnswerExplanation1";
+            this.txtAnswerExplanation1.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation1.TabIndex = 21;
+            // 
+            // txtAnswerExplanation2
+            // 
+            this.txtAnswerExplanation2.Location = new System.Drawing.Point(278, 371);
+            this.txtAnswerExplanation2.Name = "txtAnswerExplanation2";
+            this.txtAnswerExplanation2.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation2.TabIndex = 22;
+            // 
+            // txtAnswerExplanation3
+            // 
+            this.txtAnswerExplanation3.Location = new System.Drawing.Point(464, 371);
+            this.txtAnswerExplanation3.Name = "txtAnswerExplanation3";
+            this.txtAnswerExplanation3.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation3.TabIndex = 23;
+            // 
+            // txtAnswerExplanation4
+            // 
+            this.txtAnswerExplanation4.Location = new System.Drawing.Point(663, 371);
+            this.txtAnswerExplanation4.Name = "txtAnswerExplanation4";
+            this.txtAnswerExplanation4.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation4.TabIndex = 24;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(25, 371);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 25;
+            this.label4.Text = "答案說明";
             // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.txtAnswerExplanation4);
+            this.Controls.Add(this.txtAnswerExplanation3);
+            this.Controls.Add(this.txtAnswerExplanation2);
+            this.Controls.Add(this.txtAnswerExplanation1);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtQuestionExplanation);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rdoAnswer4);
             this.Controls.Add(this.rdoAnswer3);
             this.Controls.Add(this.rdoAnswer2);
             this.Controls.Add(this.rdoAnswer1);
-            this.Controls.Add(this.cboAnswer4);
-            this.Controls.Add(this.cboAnswer3);
-            this.Controls.Add(this.cboAnswer2);
-            this.Controls.Add(this.cboAnswer1);
             this.Controls.Add(this.btnStore);
             this.Controls.Add(this.txtAnswer4);
             this.Controls.Add(this.txtAnswer3);
@@ -245,16 +269,19 @@
         private System.Windows.Forms.TextBox txtAnswer3;
         private System.Windows.Forms.TextBox txtAnswer4;
         private System.Windows.Forms.Button btnStore;
-        private System.Windows.Forms.CheckBox cboAnswer1;
-        private System.Windows.Forms.CheckBox cboAnswer2;
-        private System.Windows.Forms.CheckBox cboAnswer3;
-        private System.Windows.Forms.CheckBox cboAnswer4;
         private System.Windows.Forms.RadioButton rdoAnswer1;
         private System.Windows.Forms.RadioButton rdoAnswer2;
         private System.Windows.Forms.RadioButton rdoAnswer3;
         private System.Windows.Forms.RadioButton rdoAnswer4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtQuestionExplanation;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TextBox txtAnswerExplanation1;
+        private System.Windows.Forms.TextBox txtAnswerExplanation2;
+        private System.Windows.Forms.TextBox txtAnswerExplanation3;
+        private System.Windows.Forms.TextBox txtAnswerExplanation4;
+        private System.Windows.Forms.Label label4;
     }
 }
 

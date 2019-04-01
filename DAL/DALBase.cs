@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -11,10 +12,19 @@ namespace EnglishTester.DAL
     {
         protected BaseEntities Entities;
         bool Disposed;
+        public IQueryable<TEntity> Data;
 
         public DALBase() { Entities = new BaseEntities(); }
         public DALBase(BaseEntities entities) { Entities = entities; }
 
+        public TEntity Read(Expression<Func<TEntity, bool>> predicate)
+        {
+            return Entities.Set<TEntity>().Where(predicate).FirstOrDefault();
+        }
+        public void Reads()
+        {
+            Data = Entities.Set<TEntity>().AsQueryable();
+        }
         public void Add(TEntity entity)
         {
             Entities.Set<TEntity>().Add(entity);

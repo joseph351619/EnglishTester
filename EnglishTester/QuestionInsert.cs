@@ -21,13 +21,12 @@ namespace EnglishTester
 
         private void btnStore_Click(object sender, EventArgs e)
         {
-            Questions question = new Questions();
-            question.Question = txtQuestion.Text;
+            Questions question = new Questions() { Question = txtQuestion.Text, Explanation = txtQuestionExplanation.Text };
             List<Answers> answers = new List<Answers>();
-            answers.Add(new Answers() { Answer = txtAnswer1.Text, IsCorrect = rdoAnswer1.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer2.Text, IsCorrect = rdoAnswer2.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer3.Text, IsCorrect = rdoAnswer3.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer4.Text, IsCorrect = rdoAnswer4.Checked });
+            answers.Add(new Answers() { Answer = txtAnswer1.Text, Explanation = txtAnswerExplanation1.Text, IsCorrect = rdoAnswer1.Checked });
+            answers.Add(new Answers() { Answer = txtAnswer2.Text, Explanation = txtAnswerExplanation2.Text, IsCorrect = rdoAnswer2.Checked });
+            answers.Add(new Answers() { Answer = txtAnswer3.Text, Explanation = txtAnswerExplanation3.Text, IsCorrect = rdoAnswer3.Checked });
+            answers.Add(new Answers() { Answer = txtAnswer4.Text, Explanation = txtAnswerExplanation4.Text, IsCorrect = rdoAnswer4.Checked });
             QuestionsBLL BLL = new QuestionsBLL();
             BLL.InsertQuestion(question, answers);
             MessageBox.Show("Success");

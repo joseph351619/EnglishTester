@@ -58,6 +58,10 @@
     <Compile Include="Migrations\201903311502232_CreateAnswersTable.Designer.cs">
       <DependentUpon>201903311502232_CreateAnswersTable.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904011333381_AddQuestionExplanation.cs" />
+    <Compile Include="Migrations\201904011333381_AddQuestionExplanation.Designer.cs">
+      <DependentUpon>201904011333381_AddQuestionExplanation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Questions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +76,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201903311502232_CreateAnswersTable.resx">
       <DependentUpon>201903311502232_CreateAnswersTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904011333381_AddQuestionExplanation.resx">
+      <DependentUpon>201904011333381_AddQuestionExplanation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

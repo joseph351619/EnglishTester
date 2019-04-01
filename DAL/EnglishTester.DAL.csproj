@@ -51,7 +51,7 @@
     <Compile Include="AnswersDAL.cs" />
     <Compile Include="Class1.cs" />
     <Compile Include="DALBase.cs" />
-    <Compile Include="QusetionsDAL.cs" />
+    <Compile Include="QuestionsDAL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

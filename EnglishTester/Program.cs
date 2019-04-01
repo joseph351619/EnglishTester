@@ -16,7 +16,7 @@ namespace EnglishTester
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new QuestionInsert());
+            Application.Run(new QuestionTest());
         }
     }
 }

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnglishTester.DAL
 {
-    public class QusetionsDAL:DALBase<Questions>
+    public class QuestionsDAL:DALBase<Questions>
     {
         
     }

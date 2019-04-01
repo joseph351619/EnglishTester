@@ -13,7 +13,7 @@ namespace EnglishTester.BLL
         public void InsertQuestion(Questions question, List<Answers> answers)
         {
             int questionNo = 0;
-            using (QusetionsDAL dal=new QusetionsDAL())
+            using (QuestionsDAL dal=new QuestionsDAL())
             {
                 dal.Add(question);
                 dal.Save();
@@ -26,6 +26,21 @@ namespace EnglishTester.BLL
                 dal.Save();
             }
 
+        }
+        public Questions GetQuestions(int questionNo)
+        {
+            using (QuestionsDAL dal = new QuestionsDAL())
+            {
+                return dal.Read(a => a.NO == questionNo);
+            }
+        }
+        public int[] GetAllQuestionsNo()
+        {
+            using (QuestionsDAL dal = new QuestionsDAL())
+            {
+                dal.Reads();
+                return dal.Data.Select(a => a.NO).ToArray();
+            }
         }
     }
 }
