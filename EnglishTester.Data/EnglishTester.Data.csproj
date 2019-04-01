@@ -4,17 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8C557B20-5AED-41B3-8D08-E9062B32BD05}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>EnglishTester</RootNamespace>
-    <AssemblyName>EnglishTester</AssemblyName>
+    <ProjectGuid>{F21EC508-EE92-44FC-B3ED-E1A7D187FF25}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>EnglishTester.Data</RootNamespace>
+    <AssemblyName>EnglishTester.Data</AssemblyName>
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -24,7 +23,6 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -46,56 +44,35 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Deployment" />
-    <Reference Include="System.Drawing" />
     <Reference Include="System.Net.Http" />
-    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="QuestionInsert.cs">
-      <SubType>Form</SubType>
+    <Compile Include="Answers.cs" />
+    <Compile Include="BaseEntities\BaseEntities.cs" />
+    <Compile Include="Migrations\201903311437389_initialCreate.cs" />
+    <Compile Include="Migrations\201903311437389_initialCreate.Designer.cs">
+      <DependentUpon>201903311437389_initialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="QuestionInsert.Designer.cs">
-      <DependentUpon>QuestionInsert.cs</DependentUpon>
+    <Compile Include="Migrations\201903311502232_CreateAnswersTable.cs" />
+    <Compile Include="Migrations\201903311502232_CreateAnswersTable.Designer.cs">
+      <DependentUpon>201903311502232_CreateAnswersTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Program.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Questions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <EmbeddedResource Include="QuestionInsert.resx">
-      <DependentUpon>QuestionInsert.cs</DependentUpon>
-    </EmbeddedResource>
-    <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\EnglishTester.BLL\EnglishTester.BLL.csproj">
-      <Project>{e5127838-d2ab-467e-8041-44c224cdc961}</Project>
-      <Name>EnglishTester.BLL</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\EnglishTester.Data\EnglishTester.Data.csproj">
-      <Project>{F21EC508-EE92-44FC-B3ED-E1A7D187FF25}</Project>
-      <Name>EnglishTester.Data</Name>
-    </ProjectReference>
+    <EmbeddedResource Include="Migrations\201903311437389_initialCreate.resx">
+      <DependentUpon>201903311437389_initialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201903311502232_CreateAnswersTable.resx">
+      <DependentUpon>201903311502232_CreateAnswersTable.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
