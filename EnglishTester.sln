@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishTester.DAL", "DAL\En
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishTester.BLL", "EnglishTester.BLL\EnglishTester.BLL.csproj", "{E5127838-D2AB-467E-8041-44C224CDC961}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnglishTester.Common", "EnglishTester.Common\EnglishTester.Common.csproj", "{3A6597D1-1EF4-40F8-9402-15458F56BCE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{E5127838-D2AB-467E-8041-44C224CDC961}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E5127838-D2AB-467E-8041-44C224CDC961}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E5127838-D2AB-467E-8041-44C224CDC961}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A6597D1-1EF4-40F8-9402-15458F56BCE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A6597D1-1EF4-40F8-9402-15458F56BCE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A6597D1-1EF4-40F8-9402-15458F56BCE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A6597D1-1EF4-40F8-9402-15458F56BCE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

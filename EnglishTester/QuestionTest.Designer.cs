@@ -39,6 +39,7 @@
             this.rdoAnswer4 = new System.Windows.Forms.RadioButton();
             this.lblAnswer4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -140,11 +141,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(687, 13);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 11;
+            this.btnBack.Text = "返回";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // QuestionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rdoAnswer4);
             this.Controls.Add(this.lblAnswer4);
@@ -176,5 +188,6 @@
         private System.Windows.Forms.RadioButton rdoAnswer4;
         private System.Windows.Forms.Label lblAnswer4;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnBack;
     }
 }

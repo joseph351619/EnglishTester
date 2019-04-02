@@ -14,6 +14,8 @@ namespace EnglishTester
 {
     public partial class QuestionTest : Form
     {
+        public delegate void ClickEventHandler();
+        public event ClickEventHandler ClickEvent;
         List<Answers> Answers;
         public QuestionTest()
         {
@@ -53,6 +55,11 @@ namespace EnglishTester
                 MessageBox.Show("Fail");
 
             QuestionInitiate();
+        }
+
+        private void btnBack_Click(object sender, EventArgs e)
+        {
+            ClickEvent();
         }
     }
 }

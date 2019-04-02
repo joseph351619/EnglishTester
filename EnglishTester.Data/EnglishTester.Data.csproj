@@ -62,6 +62,10 @@
     <Compile Include="Migrations\201904011333381_AddQuestionExplanation.Designer.cs">
       <DependentUpon>201904011333381_AddQuestionExplanation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904012350149_AddAnswerType.cs" />
+    <Compile Include="Migrations\201904012350149_AddAnswerType.Designer.cs">
+      <DependentUpon>201904012350149_AddAnswerType.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Questions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -80,6 +84,15 @@
     <EmbeddedResource Include="Migrations\201904011333381_AddQuestionExplanation.resx">
       <DependentUpon>201904011333381_AddQuestionExplanation.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904012350149_AddAnswerType.resx">
+      <DependentUpon>201904012350149_AddAnswerType.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\EnglishTester.Common\EnglishTester.Common.csproj">
+      <Project>{3A6597D1-1EF4-40F8-9402-15458F56BCE0}</Project>
+      <Name>EnglishTester.Common</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

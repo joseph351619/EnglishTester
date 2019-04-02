@@ -5,6 +5,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static EnglishTester.Common.Enum;
 
 namespace EnglishTester.Data
 {
@@ -15,6 +16,7 @@ namespace EnglishTester.Data
         public int NO { get; set; }
         public string Question { get; set; }
         public string Explanation { get; set; }
+        public AnswerType Type { get; set; }
 
     }
 }

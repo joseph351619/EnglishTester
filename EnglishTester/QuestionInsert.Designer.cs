@@ -49,6 +49,7 @@
             this.txtAnswerExplanation3 = new System.Windows.Forms.TextBox();
             this.txtAnswerExplanation4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.btnBack = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -226,11 +227,22 @@
             this.label4.TabIndex = 25;
             this.label4.Text = "答案說明";
             // 
+            // btnBack
+            // 
+            this.btnBack.Location = new System.Drawing.Point(713, 7);
+            this.btnBack.Name = "btnBack";
+            this.btnBack.Size = new System.Drawing.Size(75, 23);
+            this.btnBack.TabIndex = 26;
+            this.btnBack.Text = "返回";
+            this.btnBack.UseVisualStyleBackColor = true;
+            this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
+            // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAnswerExplanation4);
             this.Controls.Add(this.txtAnswerExplanation3);
@@ -282,6 +294,7 @@
         private System.Windows.Forms.TextBox txtAnswerExplanation3;
         private System.Windows.Forms.TextBox txtAnswerExplanation4;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button btnBack;
     }
 }
 

@@ -14,6 +14,8 @@ namespace EnglishTester
 {
     public partial class QuestionInsert : Form
     {
+        public delegate void ClickEventHandler();
+        public event ClickEventHandler ClickEvent;
         public QuestionInsert()
         {
             InitializeComponent();
@@ -30,6 +32,11 @@ namespace EnglishTester
             QuestionsBLL BLL = new QuestionsBLL();
             BLL.InsertQuestion(question, answers);
             MessageBox.Show("Success");
+            txtAnswer1.Text = string.Empty;
+            txtAnswer2.Text = string.Empty;
+            txtAnswer3.Text = string.Empty;
+            txtAnswer4.Text = string.Empty;
+            txtQuestion.Text = string.Empty;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -54,6 +61,11 @@ namespace EnglishTester
         private void QuestionWords_Click(object sender, EventArgs e)
         {
             MessageBox.Show(((Label)sender).Text);
+        }
+
+        public void btnBack_Click(object sender, EventArgs e)
+        {
+            ClickEvent();
         }
     }
 }
