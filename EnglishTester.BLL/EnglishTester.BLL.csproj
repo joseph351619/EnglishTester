@@ -50,6 +50,10 @@
       <Project>{07A68EBD-3FBE-4E59-8048-6116B4EE0FDC}</Project>
       <Name>EnglishTester.DAL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnglishTester.Common\EnglishTester.Common.csproj">
+      <Project>{3a6597d1-1ef4-40f8-9402-15458f56bce0}</Project>
+      <Name>EnglishTester.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnglishTester.Data\EnglishTester.Data.csproj">
       <Project>{F21EC508-EE92-44FC-B3ED-E1A7D187FF25}</Project>
       <Name>EnglishTester.Data</Name>

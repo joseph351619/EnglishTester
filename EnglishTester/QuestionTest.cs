@@ -25,9 +25,9 @@ namespace EnglishTester
         public void QuestionInitiate()
         {
             QuestionsBLL bll = new QuestionsBLL();
-            int[] questionNos = bll.GetAllQuestionsNo();
+            List<int> questionNos = bll.GetAllQuestionsNo();
             Random random = new Random();
-            int questionNo = questionNos[random.Next(questionNos.Length)];
+            int questionNo = questionNos[random.Next(questionNos.Count())];
             Questions questions = bll.GetQuestions(questionNo);
             AnswersBLL answerBLL = new AnswersBLL();
             Answers = answerBLL.GetAnswers(questionNo).ToList();

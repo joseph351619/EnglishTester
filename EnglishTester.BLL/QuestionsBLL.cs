@@ -34,12 +34,12 @@ namespace EnglishTester.BLL
                 return dal.Read(a => a.NO == questionNo);
             }
         }
-        public int[] GetAllQuestionsNo()
+        public List<int> GetAllQuestionsNo()
         {
             using (QuestionsDAL dal = new QuestionsDAL())
             {
                 dal.Reads();
-                return dal.Data.Select(a => a.NO).ToArray();
+                return dal.Data.Select(a => a.NO).ToList();
             }
         }
     }

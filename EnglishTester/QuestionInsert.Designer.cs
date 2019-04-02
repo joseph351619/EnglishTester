@@ -50,12 +50,14 @@
             this.txtAnswerExplanation4 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.cboAnswerType = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(23, 39);
+            this.label1.Location = new System.Drawing.Point(25, 55);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
@@ -63,10 +65,10 @@
             // 
             // txtQuestion
             // 
-            this.txtQuestion.Location = new System.Drawing.Point(127, 36);
+            this.txtQuestion.Location = new System.Drawing.Point(127, 55);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
-            this.txtQuestion.Size = new System.Drawing.Size(646, 108);
+            this.txtQuestion.Size = new System.Drawing.Size(646, 89);
             this.txtQuestion.TabIndex = 1;
             // 
             // label2
@@ -237,11 +239,30 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(25, 18);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(53, 12);
+            this.label5.TabIndex = 27;
+            this.label5.Text = "題目類型";
+            // 
+            // cboAnswerType
+            // 
+            this.cboAnswerType.FormattingEnabled = true;
+            this.cboAnswerType.Location = new System.Drawing.Point(127, 15);
+            this.cboAnswerType.Name = "cboAnswerType";
+            this.cboAnswerType.Size = new System.Drawing.Size(121, 20);
+            this.cboAnswerType.TabIndex = 28;
+            // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.cboAnswerType);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.txtAnswerExplanation4);
@@ -295,6 +316,8 @@
         private System.Windows.Forms.TextBox txtAnswerExplanation4;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.ComboBox cboAnswerType;
     }
 }
 

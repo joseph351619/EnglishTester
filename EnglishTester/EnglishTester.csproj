@@ -110,6 +110,10 @@
       <Project>{e5127838-d2ab-467e-8041-44c224cdc961}</Project>
       <Name>EnglishTester.BLL</Name>
     </ProjectReference>
+    <ProjectReference Include="..\EnglishTester.Common\EnglishTester.Common.csproj">
+      <Project>{3a6597d1-1ef4-40f8-9402-15458f56bce0}</Project>
+      <Name>EnglishTester.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EnglishTester.Data\EnglishTester.Data.csproj">
       <Project>{F21EC508-EE92-44FC-B3ED-E1A7D187FF25}</Project>
       <Name>EnglishTester.Data</Name>
