@@ -17,6 +17,7 @@ namespace EnglishTester
     {
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
+        int testWordsSelected = 0;
         public QuestionInsert()
         {
             InitializeComponent();
