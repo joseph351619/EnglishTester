@@ -31,27 +31,21 @@
             this.label1 = new System.Windows.Forms.Label();
             this.txtQuestion = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.txtAnswer1 = new System.Windows.Forms.TextBox();
-            this.txtAnswer2 = new System.Windows.Forms.TextBox();
-            this.txtAnswer3 = new System.Windows.Forms.TextBox();
-            this.txtAnswer4 = new System.Windows.Forms.TextBox();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.txtOption1 = new System.Windows.Forms.TextBox();
             this.btnStore = new System.Windows.Forms.Button();
-            this.rdoAnswer1 = new System.Windows.Forms.RadioButton();
-            this.rdoAnswer2 = new System.Windows.Forms.RadioButton();
-            this.rdoAnswer3 = new System.Windows.Forms.RadioButton();
-            this.rdoAnswer4 = new System.Windows.Forms.RadioButton();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
             this.txtQuestionExplanation = new System.Windows.Forms.TextBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.txtAnswerExplanation1 = new System.Windows.Forms.TextBox();
-            this.txtAnswerExplanation2 = new System.Windows.Forms.TextBox();
-            this.txtAnswerExplanation3 = new System.Windows.Forms.TextBox();
-            this.txtAnswerExplanation4 = new System.Windows.Forms.TextBox();
+            this.txtAnswerExplanation = new System.Windows.Forms.TextBox();
+            this.txtOptionExplanation1 = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboAnswerType = new System.Windows.Forms.ComboBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -68,45 +62,31 @@
             this.txtQuestion.Location = new System.Drawing.Point(127, 55);
             this.txtQuestion.Multiline = true;
             this.txtQuestion.Name = "txtQuestion";
-            this.txtQuestion.Size = new System.Drawing.Size(646, 89);
+            this.txtQuestion.Size = new System.Drawing.Size(646, 77);
             this.txtQuestion.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(25, 293);
+            this.label2.Location = new System.Drawing.Point(25, 271);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 12);
             this.label2.TabIndex = 2;
             this.label2.Text = "答案";
             // 
-            // txtAnswer1
+            // txtAnswer
             // 
-            this.txtAnswer1.Location = new System.Drawing.Point(117, 323);
-            this.txtAnswer1.Name = "txtAnswer1";
-            this.txtAnswer1.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswer1.TabIndex = 3;
+            this.txtAnswer.Location = new System.Drawing.Point(127, 268);
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer.TabIndex = 3;
             // 
-            // txtAnswer2
+            // txtOption1
             // 
-            this.txtAnswer2.Location = new System.Drawing.Point(278, 323);
-            this.txtAnswer2.Name = "txtAnswer2";
-            this.txtAnswer2.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswer2.TabIndex = 4;
-            // 
-            // txtAnswer3
-            // 
-            this.txtAnswer3.Location = new System.Drawing.Point(464, 323);
-            this.txtAnswer3.Name = "txtAnswer3";
-            this.txtAnswer3.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswer3.TabIndex = 5;
-            // 
-            // txtAnswer4
-            // 
-            this.txtAnswer4.Location = new System.Drawing.Point(663, 320);
-            this.txtAnswer4.Name = "txtAnswer4";
-            this.txtAnswer4.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswer4.TabIndex = 6;
+            this.txtOption1.Location = new System.Drawing.Point(127, 310);
+            this.txtOption1.Name = "txtOption1";
+            this.txtOption1.Size = new System.Drawing.Size(100, 22);
+            this.txtOption1.TabIndex = 4;
             // 
             // btnStore
             // 
@@ -118,49 +98,9 @@
             this.btnStore.UseVisualStyleBackColor = true;
             this.btnStore.Click += new System.EventHandler(this.btnStore_Click);
             // 
-            // rdoAnswer1
-            // 
-            this.rdoAnswer1.AutoSize = true;
-            this.rdoAnswer1.Location = new System.Drawing.Point(117, 304);
-            this.rdoAnswer1.Name = "rdoAnswer1";
-            this.rdoAnswer1.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer1.TabIndex = 13;
-            this.rdoAnswer1.TabStop = true;
-            this.rdoAnswer1.UseVisualStyleBackColor = true;
-            // 
-            // rdoAnswer2
-            // 
-            this.rdoAnswer2.AutoSize = true;
-            this.rdoAnswer2.Location = new System.Drawing.Point(279, 304);
-            this.rdoAnswer2.Name = "rdoAnswer2";
-            this.rdoAnswer2.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer2.TabIndex = 14;
-            this.rdoAnswer2.TabStop = true;
-            this.rdoAnswer2.UseVisualStyleBackColor = true;
-            // 
-            // rdoAnswer3
-            // 
-            this.rdoAnswer3.AutoSize = true;
-            this.rdoAnswer3.Location = new System.Drawing.Point(464, 304);
-            this.rdoAnswer3.Name = "rdoAnswer3";
-            this.rdoAnswer3.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer3.TabIndex = 15;
-            this.rdoAnswer3.TabStop = true;
-            this.rdoAnswer3.UseVisualStyleBackColor = true;
-            // 
-            // rdoAnswer4
-            // 
-            this.rdoAnswer4.AutoSize = true;
-            this.rdoAnswer4.Location = new System.Drawing.Point(663, 304);
-            this.rdoAnswer4.Name = "rdoAnswer4";
-            this.rdoAnswer4.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer4.TabIndex = 16;
-            this.rdoAnswer4.TabStop = true;
-            this.rdoAnswer4.UseVisualStyleBackColor = true;
-            // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(698, 206);
+            this.button1.Location = new System.Drawing.Point(698, 138);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
@@ -170,60 +110,46 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(127, 150);
+            this.panel1.Location = new System.Drawing.Point(127, 55);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(646, 53);
+            this.panel1.Size = new System.Drawing.Size(646, 77);
             this.panel1.TabIndex = 18;
             // 
             // txtQuestionExplanation
             // 
-            this.txtQuestionExplanation.Location = new System.Drawing.Point(127, 235);
+            this.txtQuestionExplanation.Location = new System.Drawing.Point(127, 167);
             this.txtQuestionExplanation.Multiline = true;
             this.txtQuestionExplanation.Name = "txtQuestionExplanation";
-            this.txtQuestionExplanation.Size = new System.Drawing.Size(636, 48);
+            this.txtQuestionExplanation.Size = new System.Drawing.Size(646, 78);
             this.txtQuestionExplanation.TabIndex = 19;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(25, 235);
+            this.label3.Location = new System.Drawing.Point(25, 149);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(77, 12);
             this.label3.TabIndex = 20;
             this.label3.Text = "題目解答說明";
             // 
-            // txtAnswerExplanation1
+            // txtAnswerExplanation
             // 
-            this.txtAnswerExplanation1.Location = new System.Drawing.Point(117, 371);
-            this.txtAnswerExplanation1.Name = "txtAnswerExplanation1";
-            this.txtAnswerExplanation1.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswerExplanation1.TabIndex = 21;
+            this.txtAnswerExplanation.Location = new System.Drawing.Point(360, 265);
+            this.txtAnswerExplanation.Name = "txtAnswerExplanation";
+            this.txtAnswerExplanation.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation.TabIndex = 21;
             // 
-            // txtAnswerExplanation2
+            // txtOptionExplanation1
             // 
-            this.txtAnswerExplanation2.Location = new System.Drawing.Point(278, 371);
-            this.txtAnswerExplanation2.Name = "txtAnswerExplanation2";
-            this.txtAnswerExplanation2.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswerExplanation2.TabIndex = 22;
-            // 
-            // txtAnswerExplanation3
-            // 
-            this.txtAnswerExplanation3.Location = new System.Drawing.Point(464, 371);
-            this.txtAnswerExplanation3.Name = "txtAnswerExplanation3";
-            this.txtAnswerExplanation3.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswerExplanation3.TabIndex = 23;
-            // 
-            // txtAnswerExplanation4
-            // 
-            this.txtAnswerExplanation4.Location = new System.Drawing.Point(663, 371);
-            this.txtAnswerExplanation4.Name = "txtAnswerExplanation4";
-            this.txtAnswerExplanation4.Size = new System.Drawing.Size(100, 22);
-            this.txtAnswerExplanation4.TabIndex = 24;
+            this.txtOptionExplanation1.Location = new System.Drawing.Point(360, 310);
+            this.txtOptionExplanation1.Name = "txtOptionExplanation1";
+            this.txtOptionExplanation1.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation1.TabIndex = 22;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(25, 371);
+            this.label4.Location = new System.Drawing.Point(276, 268);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 25;
@@ -256,35 +182,47 @@
             this.cboAnswerType.Size = new System.Drawing.Size(121, 20);
             this.cboAnswerType.TabIndex = 28;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(25, 313);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(29, 12);
+            this.label6.TabIndex = 29;
+            this.label6.Text = "選項";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(276, 313);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(53, 12);
+            this.label7.TabIndex = 30;
+            this.label7.Text = "選項說明";
+            // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.cboAnswerType);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.txtAnswerExplanation4);
-            this.Controls.Add(this.txtAnswerExplanation3);
-            this.Controls.Add(this.txtAnswerExplanation2);
-            this.Controls.Add(this.txtAnswerExplanation1);
+            this.Controls.Add(this.txtOptionExplanation1);
+            this.Controls.Add(this.txtAnswerExplanation);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.txtQuestionExplanation);
-            this.Controls.Add(this.panel1);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.rdoAnswer4);
-            this.Controls.Add(this.rdoAnswer3);
-            this.Controls.Add(this.rdoAnswer2);
-            this.Controls.Add(this.rdoAnswer1);
             this.Controls.Add(this.btnStore);
-            this.Controls.Add(this.txtAnswer4);
-            this.Controls.Add(this.txtAnswer3);
-            this.Controls.Add(this.txtAnswer2);
-            this.Controls.Add(this.txtAnswer1);
+            this.Controls.Add(this.txtOption1);
+            this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtQuestion);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.panel1);
             this.Name = "QuestionInsert";
             this.Text = "Form1";
             this.ResumeLayout(false);
@@ -297,27 +235,21 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TextBox txtQuestion;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox txtAnswer1;
-        private System.Windows.Forms.TextBox txtAnswer2;
-        private System.Windows.Forms.TextBox txtAnswer3;
-        private System.Windows.Forms.TextBox txtAnswer4;
+        private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.TextBox txtOption1;
         private System.Windows.Forms.Button btnStore;
-        private System.Windows.Forms.RadioButton rdoAnswer1;
-        private System.Windows.Forms.RadioButton rdoAnswer2;
-        private System.Windows.Forms.RadioButton rdoAnswer3;
-        private System.Windows.Forms.RadioButton rdoAnswer4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox txtQuestionExplanation;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox txtAnswerExplanation1;
-        private System.Windows.Forms.TextBox txtAnswerExplanation2;
-        private System.Windows.Forms.TextBox txtAnswerExplanation3;
-        private System.Windows.Forms.TextBox txtAnswerExplanation4;
+        private System.Windows.Forms.TextBox txtAnswerExplanation;
+        private System.Windows.Forms.TextBox txtOptionExplanation1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnBack;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ComboBox cboAnswerType;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
     }
 }
 

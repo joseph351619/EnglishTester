@@ -17,6 +17,7 @@ namespace EnglishTester
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
         List<Answers> Answers;
+        bool QuestionStatus = false;
         public QuestionTest()
         {
             InitializeComponent();
@@ -24,6 +25,7 @@ namespace EnglishTester
         }
         public void QuestionInitiate()
         {
+            pnlAnswer.Hide();
             QuestionsBLL bll = new QuestionsBLL();
             List<int> questionNos = bll.GetAllQuestionsNo();
             Random random = new Random();
@@ -32,34 +34,61 @@ namespace EnglishTester
             AnswersBLL answerBLL = new AnswersBLL();
             Answers = answerBLL.GetAnswers(questionNo).ToList();
             lblQuestion.Text = questions.Question;
-            lblAnswer1.Text = Answers[0].Answer;
-            lblAnswer2.Text = Answers[1].Answer;
-            lblAnswer3.Text = Answers[2].Answer;
-            lblAnswer4.Text = Answers[3].Answer;
+            rtxtQuestionExplanation.Text = questions.Explanation;
+            rtxtAnswerExplanation.Text = Answers.Where(a => a.IsCorrect).FirstOrDefault().Explanation;
+            lblCorrectAnswer.Text = string.Empty;
+            txtAnswer.Text = string.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            if (rdoAnswer1.Checked && Answers[0].IsCorrect)
-                success = true;
-            if (rdoAnswer2.Checked && Answers[1].IsCorrect)
-                success = true;
-            if (rdoAnswer3.Checked && Answers[2].IsCorrect)
-                success = true;
-            if (rdoAnswer4.Checked && Answers[3].IsCorrect)
-                success = true;
-            if (success)
-                MessageBox.Show("Success");
+            ConfirmAction();
+        }
+        private void ConfirmAction()
+        {
+            //bool success = false;
+            var answer = Answers.Where(a => a.IsCorrect).FirstOrDefault();
+            if (txtAnswer.Text.Trim() == answer.Answer)
+            {
+                lblResult.Text = "True";
+                lblResult.ForeColor = Color.Green;
+            }
             else
-                MessageBox.Show("Fail");
-
-            QuestionInitiate();
+            {
+                lblCorrectAnswer.Text = answer.Answer;
+                lblResult.Text = "Fail";
+                lblResult.ForeColor = Color.Red;
+            }
+            pnlAnswer.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             ClickEvent();
+        }
+
+        private void btnNext_Click(object sender, EventArgs e)
+        {
+            QuestionInitiate();
+        }
+
+        private void QuestionTest_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (QuestionStatus)
+                {
+                    QuestionStatus = false;
+                    QuestionInitiate();
+                }
+                else
+                {
+                    QuestionStatus = true;
+                    ConfirmAction();
+                }
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

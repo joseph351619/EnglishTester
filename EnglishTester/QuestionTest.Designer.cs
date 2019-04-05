@@ -30,22 +30,25 @@
         {
             this.label1 = new System.Windows.Forms.Label();
             this.lblQuestion = new System.Windows.Forms.Label();
-            this.lblAnswer1 = new System.Windows.Forms.Label();
-            this.rdoAnswer1 = new System.Windows.Forms.RadioButton();
-            this.rdoAnswer2 = new System.Windows.Forms.RadioButton();
-            this.lblAnswer2 = new System.Windows.Forms.Label();
-            this.rdoAnswer3 = new System.Windows.Forms.RadioButton();
-            this.lblAnswer3 = new System.Windows.Forms.Label();
-            this.rdoAnswer4 = new System.Windows.Forms.RadioButton();
-            this.lblAnswer4 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnConfirm = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.pnlAnswer = new System.Windows.Forms.Panel();
+            this.rtxtAnswerExplanation = new System.Windows.Forms.RichTextBox();
+            this.rtxtQuestionExplanation = new System.Windows.Forms.RichTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnNext = new System.Windows.Forms.Button();
+            this.lblCorrectAnswer = new System.Windows.Forms.Label();
+            this.lblResult = new System.Windows.Forms.Label();
+            this.pnlAnswer.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 42);
+            this.label1.Location = new System.Drawing.Point(24, 42);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(29, 12);
             this.label1.TabIndex = 0;
@@ -59,87 +62,15 @@
             this.lblQuestion.Size = new System.Drawing.Size(0, 12);
             this.lblQuestion.TabIndex = 1;
             // 
-            // lblAnswer1
+            // btnConfirm
             // 
-            this.lblAnswer1.AutoSize = true;
-            this.lblAnswer1.Location = new System.Drawing.Point(93, 274);
-            this.lblAnswer1.Name = "lblAnswer1";
-            this.lblAnswer1.Size = new System.Drawing.Size(0, 12);
-            this.lblAnswer1.TabIndex = 2;
-            // 
-            // rdoAnswer1
-            // 
-            this.rdoAnswer1.AutoSize = true;
-            this.rdoAnswer1.Location = new System.Drawing.Point(60, 274);
-            this.rdoAnswer1.Name = "rdoAnswer1";
-            this.rdoAnswer1.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer1.TabIndex = 3;
-            this.rdoAnswer1.TabStop = true;
-            this.rdoAnswer1.UseVisualStyleBackColor = true;
-            // 
-            // rdoAnswer2
-            // 
-            this.rdoAnswer2.AutoSize = true;
-            this.rdoAnswer2.Location = new System.Drawing.Point(220, 273);
-            this.rdoAnswer2.Name = "rdoAnswer2";
-            this.rdoAnswer2.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer2.TabIndex = 5;
-            this.rdoAnswer2.TabStop = true;
-            this.rdoAnswer2.UseVisualStyleBackColor = true;
-            // 
-            // lblAnswer2
-            // 
-            this.lblAnswer2.AutoSize = true;
-            this.lblAnswer2.Location = new System.Drawing.Point(253, 273);
-            this.lblAnswer2.Name = "lblAnswer2";
-            this.lblAnswer2.Size = new System.Drawing.Size(0, 12);
-            this.lblAnswer2.TabIndex = 4;
-            // 
-            // rdoAnswer3
-            // 
-            this.rdoAnswer3.AutoSize = true;
-            this.rdoAnswer3.Location = new System.Drawing.Point(441, 274);
-            this.rdoAnswer3.Name = "rdoAnswer3";
-            this.rdoAnswer3.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer3.TabIndex = 7;
-            this.rdoAnswer3.TabStop = true;
-            this.rdoAnswer3.UseVisualStyleBackColor = true;
-            // 
-            // lblAnswer3
-            // 
-            this.lblAnswer3.AutoSize = true;
-            this.lblAnswer3.Location = new System.Drawing.Point(474, 274);
-            this.lblAnswer3.Name = "lblAnswer3";
-            this.lblAnswer3.Size = new System.Drawing.Size(0, 12);
-            this.lblAnswer3.TabIndex = 6;
-            // 
-            // rdoAnswer4
-            // 
-            this.rdoAnswer4.AutoSize = true;
-            this.rdoAnswer4.Location = new System.Drawing.Point(619, 272);
-            this.rdoAnswer4.Name = "rdoAnswer4";
-            this.rdoAnswer4.Size = new System.Drawing.Size(14, 13);
-            this.rdoAnswer4.TabIndex = 9;
-            this.rdoAnswer4.TabStop = true;
-            this.rdoAnswer4.UseVisualStyleBackColor = true;
-            // 
-            // lblAnswer4
-            // 
-            this.lblAnswer4.AutoSize = true;
-            this.lblAnswer4.Location = new System.Drawing.Point(652, 272);
-            this.lblAnswer4.Name = "lblAnswer4";
-            this.lblAnswer4.Size = new System.Drawing.Size(0, 12);
-            this.lblAnswer4.TabIndex = 8;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(688, 392);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 10;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.btnConfirm.Location = new System.Drawing.Point(605, 415);
+            this.btnConfirm.Name = "btnConfirm";
+            this.btnConfirm.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirm.TabIndex = 10;
+            this.btnConfirm.Text = "確認";
+            this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
             // 
             // btnBack
             // 
@@ -151,25 +82,117 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // txtAnswer
+            // 
+            this.txtAnswer.Location = new System.Drawing.Point(113, 144);
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer.TabIndex = 12;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(25, 147);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(53, 12);
+            this.label2.TabIndex = 13;
+            this.label2.Text = "輸入答案";
+            // 
+            // pnlAnswer
+            // 
+            this.pnlAnswer.Controls.Add(this.rtxtAnswerExplanation);
+            this.pnlAnswer.Controls.Add(this.rtxtQuestionExplanation);
+            this.pnlAnswer.Controls.Add(this.label4);
+            this.pnlAnswer.Controls.Add(this.label3);
+            this.pnlAnswer.Location = new System.Drawing.Point(27, 211);
+            this.pnlAnswer.Name = "pnlAnswer";
+            this.pnlAnswer.Size = new System.Drawing.Size(735, 184);
+            this.pnlAnswer.TabIndex = 14;
+            // 
+            // rtxtAnswerExplanation
+            // 
+            this.rtxtAnswerExplanation.Location = new System.Drawing.Point(86, 91);
+            this.rtxtAnswerExplanation.Name = "rtxtAnswerExplanation";
+            this.rtxtAnswerExplanation.ReadOnly = true;
+            this.rtxtAnswerExplanation.Size = new System.Drawing.Size(646, 84);
+            this.rtxtAnswerExplanation.TabIndex = 4;
+            this.rtxtAnswerExplanation.Text = "";
+            // 
+            // rtxtQuestionExplanation
+            // 
+            this.rtxtQuestionExplanation.Location = new System.Drawing.Point(86, 3);
+            this.rtxtQuestionExplanation.Name = "rtxtQuestionExplanation";
+            this.rtxtQuestionExplanation.ReadOnly = true;
+            this.rtxtQuestionExplanation.Size = new System.Drawing.Size(646, 82);
+            this.rtxtQuestionExplanation.TabIndex = 3;
+            this.rtxtQuestionExplanation.Text = "";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(17, 105);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(53, 12);
+            this.label4.TabIndex = 1;
+            this.label4.Text = "答案解釋";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(17, 18);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(53, 12);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "題目解釋";
+            // 
+            // btnNext
+            // 
+            this.btnNext.Location = new System.Drawing.Point(687, 415);
+            this.btnNext.Name = "btnNext";
+            this.btnNext.Size = new System.Drawing.Size(75, 23);
+            this.btnNext.TabIndex = 15;
+            this.btnNext.Text = "下一題";
+            this.btnNext.UseVisualStyleBackColor = true;
+            this.btnNext.Click += new System.EventHandler(this.btnNext_Click);
+            // 
+            // lblCorrectAnswer
+            // 
+            this.lblCorrectAnswer.AutoSize = true;
+            this.lblCorrectAnswer.ForeColor = System.Drawing.Color.Red;
+            this.lblCorrectAnswer.Location = new System.Drawing.Point(262, 147);
+            this.lblCorrectAnswer.Name = "lblCorrectAnswer";
+            this.lblCorrectAnswer.Size = new System.Drawing.Size(0, 12);
+            this.lblCorrectAnswer.TabIndex = 16;
+            // 
+            // lblResult
+            // 
+            this.lblResult.AutoSize = true;
+            this.lblResult.Location = new System.Drawing.Point(27, 13);
+            this.lblResult.Name = "lblResult";
+            this.lblResult.Size = new System.Drawing.Size(0, 12);
+            this.lblResult.TabIndex = 17;
+            // 
             // QuestionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.lblResult);
+            this.Controls.Add(this.lblCorrectAnswer);
+            this.Controls.Add(this.btnNext);
+            this.Controls.Add(this.pnlAnswer);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.txtAnswer);
             this.Controls.Add(this.btnBack);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.rdoAnswer4);
-            this.Controls.Add(this.lblAnswer4);
-            this.Controls.Add(this.rdoAnswer3);
-            this.Controls.Add(this.lblAnswer3);
-            this.Controls.Add(this.rdoAnswer2);
-            this.Controls.Add(this.lblAnswer2);
-            this.Controls.Add(this.rdoAnswer1);
-            this.Controls.Add(this.lblAnswer1);
+            this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.label1);
+            this.KeyPreview = true;
             this.Name = "QuestionTest";
             this.Text = "QuestionTest";
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.QuestionTest_KeyDown);
+            this.pnlAnswer.ResumeLayout(false);
+            this.pnlAnswer.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -179,15 +202,17 @@
 
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label lblQuestion;
-        private System.Windows.Forms.Label lblAnswer1;
-        private System.Windows.Forms.RadioButton rdoAnswer1;
-        private System.Windows.Forms.RadioButton rdoAnswer2;
-        private System.Windows.Forms.Label lblAnswer2;
-        private System.Windows.Forms.RadioButton rdoAnswer3;
-        private System.Windows.Forms.Label lblAnswer3;
-        private System.Windows.Forms.RadioButton rdoAnswer4;
-        private System.Windows.Forms.Label lblAnswer4;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.TextBox txtAnswer;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Panel pnlAnswer;
+        private System.Windows.Forms.RichTextBox rtxtAnswerExplanation;
+        private System.Windows.Forms.RichTextBox rtxtQuestionExplanation;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button btnNext;
+        private System.Windows.Forms.Label lblCorrectAnswer;
+        private System.Windows.Forms.Label lblResult;
     }
 }
