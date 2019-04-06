@@ -36,6 +36,10 @@ namespace EnglishTester.DAL
                 Entities.Set<TEntity>().Add(entity);
             }
         }
+        public void Delete(TEntity entity)
+        {
+            Entities.Entry(entity).State = System.Data.Entity.EntityState.Deleted;
+        }
         public void Save()
         {
             Entities.SaveChanges();

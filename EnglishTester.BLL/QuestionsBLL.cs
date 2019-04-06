@@ -10,10 +10,11 @@ namespace EnglishTester.BLL
 {
     public class QuestionsBLL
     {
+        QuestionsDAL questionsDAL = new QuestionsDAL();
         public void InsertQuestion(Questions question, List<Answers> answers)
         {
             int questionNo = 0;
-            using (QuestionsDAL dal=new QuestionsDAL())
+            using (QuestionsDAL dal = new QuestionsDAL())
             {
                 dal.Add(question);
                 dal.Save();
@@ -41,6 +42,17 @@ namespace EnglishTester.BLL
                 dal.Reads();
                 return dal.Data.Select(a => a.NO).ToList();
             }
+        }
+        public IEnumerable<Questions> ReadAll()
+        {
+            using (QuestionsDAL dal = new QuestionsDAL())
+            {
+                return dal.ReadAll();
+            }
+        }
+        public void Delete(Questions question)
+        {
+             questionsDAL.Delete(question);
         }
     }
 }

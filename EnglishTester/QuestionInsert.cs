@@ -18,15 +18,24 @@ namespace EnglishTester
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
         //int testWordsSelected = 0;
+        QuestionsBLL questionsBLL = new QuestionsBLL();
+        Questions _currentQuestion = null;
         bool QuestionConfirm = false;
         Label[] words;
         public QuestionInsert()
         {
             InitializeComponent();
+            bdnQuestions.BindingSource = bdsQuestions;
             cboAnswerType.DataSource = AnswerType.Types();
             cboAnswerType.DisplayMember = AnswerType.DisplayName();
             cboAnswerType.ValueMember = AnswerType.ValueName();
         }
+        private void QuestionInsert_Load(object sender, EventArgs e)
+        {
+            this.bdsQuestions.PositionChanged += bdsQuestions_BindingSource_PositionChanged;
+            this.bdsQuestions.DataSource = this.questionsBLL.ReadAll();
+        }
+
 
 
         private void btnStore_Click(object sender, EventArgs e)
@@ -117,6 +126,32 @@ namespace EnglishTester
         public void btnBack_Click(object sender, EventArgs e)
         {
             ClickEvent();
+        }
+        private void bdsQuestions_BindingSource_PositionChanged(object sender, EventArgs e)
+        {
+            var source = (BindingSource)sender;
+            if(source.Position < 0)
+            {
+                this.bdsQuestions.DataSource = null;
+                return;
+            }
+            this._currentQuestion = (Questions)source.Current;
+        }
+
+        private void bdsQuestions_AddingNew(object sender, AddingNewEventArgs e)
+        {
+            var question = new Questions();
+            e.NewObject = question;
+
+            List<Answers> answers = new List<Answers>();
+            answers.Add(new Answers() { Answer = txtAnswer.Text.Trim(), Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsCorrect = true });
+            this.questionsBLL.InsertQuestion(question, answers);
+        }
+
+        private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
+        {
+            var question = (Questions)this.bdsQuestions.Current;
+            this.questionsBLL.Delete(question);
         }
     }
 }
