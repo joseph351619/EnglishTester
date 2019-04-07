@@ -49,21 +49,28 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.bdnQuestions = new System.Windows.Forms.BindingNavigator(this.components);
+            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
+            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorMoveFirstItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMovePreviousItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorPositionItem = new System.Windows.Forms.ToolStripTextBox();
-            this.bindingNavigatorCountItem = new System.Windows.Forms.ToolStripLabel();
             this.bindingNavigatorSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorMoveNextItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
-            this.bindingNavigatorAddNewItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
             this.bdsQuestions = new System.Windows.Forms.BindingSource(this.components);
+            this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
+            this.bdsOptions = new System.Windows.Forms.BindingSource(this.components);
+            this.txtOptionExplanation2 = new System.Windows.Forms.TextBox();
+            this.txtOption2 = new System.Windows.Forms.TextBox();
+            this.txtOptionExplanation3 = new System.Windows.Forms.TextBox();
+            this.txtOption3 = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
             this.bdnQuestions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsOptions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -108,7 +115,7 @@
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(713, 415);
+            this.btnStore.Location = new System.Drawing.Point(712, 464);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(75, 23);
             this.btnStore.TabIndex = 7;
@@ -118,11 +125,11 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(697, 174);
+            this.button1.Location = new System.Drawing.Point(712, 174);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 17;
-            this.button1.Text = "button1";
+            this.button1.Text = "確認";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -194,6 +201,7 @@
             // 
             // cboAnswerType
             // 
+            this.cboAnswerType.DataSource = this.bdsQuestions;
             this.cboAnswerType.FormattingEnabled = true;
             this.cboAnswerType.Location = new System.Drawing.Point(126, 51);
             this.cboAnswerType.Name = "cboAnswerType";
@@ -234,7 +242,8 @@
             this.bindingNavigatorMoveLastItem,
             this.bindingNavigatorSeparator2,
             this.bindingNavigatorAddNewItem,
-            this.bindingNavigatorDeleteItem});
+            this.bindingNavigatorDeleteItem,
+            this.toolStripButton1});
             this.bdnQuestions.Location = new System.Drawing.Point(0, 0);
             this.bdnQuestions.MoveFirstItem = this.bindingNavigatorMoveFirstItem;
             this.bdnQuestions.MoveLastItem = this.bindingNavigatorMoveLastItem;
@@ -242,9 +251,25 @@
             this.bdnQuestions.MovePreviousItem = this.bindingNavigatorMovePreviousItem;
             this.bdnQuestions.Name = "bdnQuestions";
             this.bdnQuestions.PositionItem = this.bindingNavigatorPositionItem;
-            this.bdnQuestions.Size = new System.Drawing.Size(800, 25);
+            this.bdnQuestions.Size = new System.Drawing.Size(806, 25);
             this.bdnQuestions.TabIndex = 31;
             this.bdnQuestions.Text = "bindingNavigator1";
+            // 
+            // bindingNavigatorAddNewItem
+            // 
+            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
+            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
+            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
+            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
+            this.bindingNavigatorAddNewItem.Text = "加入新的";
+            // 
+            // bindingNavigatorCountItem
+            // 
+            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(27, 22);
+            this.bindingNavigatorCountItem.Text = "/{0}";
+            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
             // bindingNavigatorMoveFirstItem
             // 
@@ -278,16 +303,9 @@
             this.bindingNavigatorPositionItem.Text = "0";
             this.bindingNavigatorPositionItem.ToolTipText = "目前的位置";
             // 
-            // bindingNavigatorCountItem
-            // 
-            this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(27, 22);
-            this.bindingNavigatorCountItem.Text = "/{0}";
-            this.bindingNavigatorCountItem.ToolTipText = "項目總數";
-            // 
             // bindingNavigatorSeparator1
             // 
-            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator1.Name = "bindingNavigatorSeparator1";
             this.bindingNavigatorSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
             // bindingNavigatorMoveNextItem
@@ -310,17 +328,8 @@
             // 
             // bindingNavigatorSeparator2
             // 
-            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator";
+            this.bindingNavigatorSeparator2.Name = "bindingNavigatorSeparator2";
             this.bindingNavigatorSeparator2.Size = new System.Drawing.Size(6, 25);
-            // 
-            // bindingNavigatorAddNewItem
-            // 
-            this.bindingNavigatorAddNewItem.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.bindingNavigatorAddNewItem.Image = ((System.Drawing.Image)(resources.GetObject("bindingNavigatorAddNewItem.Image")));
-            this.bindingNavigatorAddNewItem.Name = "bindingNavigatorAddNewItem";
-            this.bindingNavigatorAddNewItem.RightToLeftAutoMirrorImage = true;
-            this.bindingNavigatorAddNewItem.Size = new System.Drawing.Size(23, 22);
-            this.bindingNavigatorAddNewItem.Text = "加入新的";
             // 
             // bindingNavigatorDeleteItem
             // 
@@ -336,11 +345,52 @@
             // 
             this.bdsQuestions.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bdsQuestions_AddingNew);
             // 
+            // toolStripButton1
+            // 
+            this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButton1.Image")));
+            this.toolStripButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButton1.Name = "toolStripButton1";
+            this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButton1.Text = "toolStripButton1";
+            // 
+            // txtOptionExplanation2
+            // 
+            this.txtOptionExplanation2.Location = new System.Drawing.Point(359, 386);
+            this.txtOptionExplanation2.Name = "txtOptionExplanation2";
+            this.txtOptionExplanation2.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation2.TabIndex = 33;
+            // 
+            // txtOption2
+            // 
+            this.txtOption2.Location = new System.Drawing.Point(126, 386);
+            this.txtOption2.Name = "txtOption2";
+            this.txtOption2.Size = new System.Drawing.Size(100, 22);
+            this.txtOption2.TabIndex = 32;
+            // 
+            // txtOptionExplanation3
+            // 
+            this.txtOptionExplanation3.Location = new System.Drawing.Point(359, 429);
+            this.txtOptionExplanation3.Name = "txtOptionExplanation3";
+            this.txtOptionExplanation3.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation3.TabIndex = 36;
+            // 
+            // txtOption3
+            // 
+            this.txtOption3.Location = new System.Drawing.Point(126, 429);
+            this.txtOption3.Name = "txtOption3";
+            this.txtOption3.Size = new System.Drawing.Size(100, 22);
+            this.txtOption3.TabIndex = 35;
+            // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(806, 517);
+            this.Controls.Add(this.txtOptionExplanation3);
+            this.Controls.Add(this.txtOption3);
+            this.Controls.Add(this.txtOptionExplanation2);
+            this.Controls.Add(this.txtOption2);
             this.Controls.Add(this.bdnQuestions);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -367,6 +417,7 @@
             this.bdnQuestions.ResumeLayout(false);
             this.bdnQuestions.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsOptions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -405,6 +456,12 @@
         private System.Windows.Forms.ToolStripButton bindingNavigatorMoveLastItem;
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.BindingSource bdsQuestions;
+        private System.Windows.Forms.ToolStripButton toolStripButton1;
+        private System.Windows.Forms.BindingSource bdsOptions;
+        private System.Windows.Forms.TextBox txtOptionExplanation2;
+        private System.Windows.Forms.TextBox txtOption2;
+        private System.Windows.Forms.TextBox txtOptionExplanation3;
+        private System.Windows.Forms.TextBox txtOption3;
     }
 }
 

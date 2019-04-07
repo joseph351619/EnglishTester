@@ -19,7 +19,9 @@ namespace EnglishTester
         public event ClickEventHandler ClickEvent;
         //int testWordsSelected = 0;
         QuestionsBLL questionsBLL = new QuestionsBLL();
+        AnswersBLL answersBLL = new AnswersBLL();
         Questions _currentQuestion = null;
+        List<Answers> _currentOption = null;
         bool QuestionConfirm = false;
         Label[] words;
         public QuestionInsert()
@@ -34,6 +36,17 @@ namespace EnglishTester
         {
             this.bdsQuestions.PositionChanged += bdsQuestions_BindingSource_PositionChanged;
             this.bdsQuestions.DataSource = this.questionsBLL.ReadAll();
+            TextBoxDataBinding();
+        }
+        private void TextBoxDataBinding()
+        {
+            this.txtQuestion.DataBindings.Add(new Binding("Text", bdsQuestions, "Question"));
+            this.txtQuestionExplanation.DataBindings.Add(new Binding("Text", bdsQuestions, "Explanation"));
+            //this.txtAnswer.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
+            //this.txtAnswerExplanation.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
+            //this.txtOption1.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
+            //this.txtOptionExplanation1.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
+
         }
 
 
@@ -136,6 +149,26 @@ namespace EnglishTester
                 return;
             }
             this._currentQuestion = (Questions)source.Current;
+            this._currentOption = answersBLL.GetAnswers(_currentQuestion.NO).ToList();
+            txtAnswer.Text = _currentOption.Where(a => a.IsCorrect).FirstOrDefault().Answer;
+            txtAnswerExplanation.Text = _currentOption.Where(a => a.IsCorrect).FirstOrDefault().Explanation;
+            var options = _currentOption.Where(a => !a.IsCorrect).ToList();
+            if (options.Count() > 0)
+            {
+                txtOption1.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[0].Answer;
+                txtOptionExplanation1.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[0].Explanation;
+            }
+            if(options.Count() > 1)
+            {
+                txtOption2.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[1].Answer;
+                txtOptionExplanation2.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[1].Explanation;
+            }
+            if(options.Count() > 2)
+            {
+                txtOption3.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[2].Answer;
+                txtOptionExplanation3.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[2].Explanation;
+            }
+            //this.bdsOptions.DataSource = answersBLL.GetAnswers(_currentQuestion.NO);
         }
 
         private void bdsQuestions_AddingNew(object sender, AddingNewEventArgs e)
