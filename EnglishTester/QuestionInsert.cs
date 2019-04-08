@@ -17,7 +17,9 @@ namespace EnglishTester
     {
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
-        int testWordsSelected = 0;
+        List<Label> words = new List<Label>();
+        int wordsSelectedCount = 0;
+        bool questionConfirmed = false;
         public QuestionInsert()
         {
             InitializeComponent();
@@ -29,50 +31,90 @@ namespace EnglishTester
 
         private void btnStore_Click(object sender, EventArgs e)
         {
+            var questionSentence = string.Join(" ", words.Select(a => a.Text));
             Questions question = new Questions() {
-                Question = txtQuestion.Text,
+                Question = questionSentence,
                 Explanation = txtQuestionExplanation.Text,
                 Type = (Enums.AnswerType)cboAnswerType.SelectedValue };
-            List<Answers> answers = new List<Answers>();
-            answers.Add(new Answers() { Answer = txtAnswer1.Text, Type= (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation1.Text, IsCorrect = rdoAnswer1.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer2.Text, Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation2.Text, IsCorrect = rdoAnswer2.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer3.Text, Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation3.Text, IsCorrect = rdoAnswer3.Checked });
-            answers.Add(new Answers() { Answer = txtAnswer4.Text, Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation4.Text, IsCorrect = rdoAnswer4.Checked });
+            List<Options> answers = new List<Options>();
+            answers.Add(new Options() {
+                Option = txtAnswer.Text,
+                Type = (Enums.AnswerType)cboAnswerType.SelectedValue,
+                Explanation = txtAnswerExplanation1.Text,
+                IsAnswer = true
+            });
             QuestionsBLL BLL = new QuestionsBLL();
-            BLL.InsertQuestion(question, answers);
+            Vocabulary vocabulary = new Vocabulary(txtAnswer.Text);
+            BLL.InsertQuestion(question, vocabulary, answers);
             MessageBox.Show("Success");
-            txtAnswer1.Text = string.Empty;
-            txtAnswer2.Text = string.Empty;
-            txtAnswer3.Text = string.Empty;
-            txtAnswer4.Text = string.Empty;
+            txtAnswer.Text = string.Empty;
             txtQuestion.Text = string.Empty;
+            questionConfirmed = false;
+            txtQuestion.BringToFront();
+            txtAnswerExplanation1.Text = string.Empty;
+            txtQuestionExplanation.Text = string.Empty;
+            wordsSelectedCount = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string question = txtQuestion.Text;
-            string[] questionWords = question.Split(' ');
-            Label[] words = new Label[questionWords.Length];
-            int space = 0;
-            panel1.Controls.Clear();
-            for(int i=0; i< questionWords.Length; ++i)
+            if (!questionConfirmed)
             {
-                words[i] = new Label();
-                words[i].MaximumSize = new Size(100, 0);
-                words[i].AutoSize = true;
-                words[i].Text = questionWords[i];
-                words[i].Name = $"lblQuestionWord{i}";
-                words[i].MouseClick += QuestionWords_Click;
-                //words[i].Size = new Size(50, 22);
-                panel1.Controls.Add(words[i]);
-                words[i].Left = space;
-                space += 5 + words[i].Width;
+                words.Clear();
+                questionConfirmed = true;
+                string question = txtQuestion.Text;
+                string[] questionWords = question.Split(' ');
+                int space = 0;
+                panel1.Controls.Clear();
+                panel1.BringToFront();
+                for(int i=0; i< questionWords.Length; ++i)
+                {
+                    var word = new Label();
+                    word.MaximumSize = new Size(100, 0);
+                    word.AutoSize = true;
+                    word.Text = questionWords[i];
+                    word.Name = $"lblQuestionWord{i}";
+                    word.MouseClick += QuestionWords_Click;
+                    word.Tag = questionWords[i];
+                    panel1.Controls.Add(word);
+                    word.Left = space;
+                    space += 1 + word.Width;
+                    words.Add(word);
+                }
+            }
+            else
+            {
+                wordsSelectedCount = 0;
+                txtAnswer.Text = string.Empty;
+                questionConfirmed = false;
+                txtQuestion.BringToFront();
             }
         }
 
         private void QuestionWords_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(((Label)sender).Text);
+            var selectedWord = ((Label)sender).Text;
+            if (selectedWord == "____")
+            {
+                var removeWord = ((Label)sender).Tag.ToString();
+                ((Label)sender).Text = removeWord;
+                txtAnswer.Text = txtAnswer.Text.Replace(removeWord, "");
+                wordsSelectedCount--;
+            }
+            else
+            {
+                if (wordsSelectedCount < Configuration.TestWords)
+                {
+                    ((Label)sender).Text = "____";
+                    txtAnswer.Text += string.IsNullOrEmpty(txtAnswer.Text) ? selectedWord : $"...{selectedWord}..." ;
+                    wordsSelectedCount++;
+                }
+                else
+                {
+                    MessageBox.Show("More than limited selected count");
+                }
+
+            }
         }
 
         public void btnBack_Click(object sender, EventArgs e)

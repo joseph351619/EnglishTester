@@ -9,17 +9,15 @@ using static EnglishTester.Common.Enums;
 
 namespace EnglishTester.Data
 {
-    public class Questions
+    public class Options
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
-        public int NO { get; set; }
-        public string Question { get; set; }
+        public int ID { get; set; }
+        public string Option { get; set; }
         public string Explanation { get; set; }
+        public int QuestionNo { get; set; }
         public AnswerType Type { get; set; }
-        public int? VocabularyID { get; set; }
-        [ForeignKey("VocabularyID")]
-        public virtual Vocabulary Vocabulary { get; set; }
-
+        public bool IsAnswer { get; set; }
     }
 }

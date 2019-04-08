@@ -16,38 +16,41 @@ namespace EnglishTester
     {
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
-        List<Answers> Answers;
+        public List<Answers> answers = new List<Answers>();
         public QuestionTest()
         {
             InitializeComponent();
-            QuestionInitiate();
         }
         public void QuestionInitiate()
         {
             QuestionsBLL bll = new QuestionsBLL();
             List<int> questionNos = bll.GetAllQuestionsNo();
             Random random = new Random();
-            int questionNo = questionNos[random.Next(questionNos.Count())];
+            int questionNo = 0;
+            if (questionNos.Count() > 0)
+                questionNo = questionNos[random.Next(questionNos.Count())];
             Questions questions = bll.GetQuestions(questionNo);
-            AnswersBLL answerBLL = new AnswersBLL();
-            Answers = answerBLL.GetAnswers(questionNo).ToList();
+            VocabularyBLL vocabularyBLL = new VocabularyBLL();
             lblQuestion.Text = questions.Question;
-            lblAnswer1.Text = Answers[0].Answer;
-            lblAnswer2.Text = Answers[1].Answer;
-            lblAnswer3.Text = Answers[2].Answer;
-            lblAnswer4.Text = Answers[3].Answer;
+            answers.Add( new Answers(1, questions.Vocabulary.Word, true));
+            //lblAnswer1.Text = Options[0];
+            //lblAnswer2.Text = Options[1];
+            //lblAnswer3.Text = Options[2];
+            //lblAnswer4.Text = Options[3];
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             bool success = false;
-            if (rdoAnswer1.Checked && Answers[0].IsCorrect)
-                success = true;
-            if (rdoAnswer2.Checked && Answers[1].IsCorrect)
-                success = true;
-            if (rdoAnswer3.Checked && Answers[2].IsCorrect)
-                success = true;
-            if (rdoAnswer4.Checked && Answers[3].IsCorrect)
+            //if (rdoAnswer1.Checked && Options[0].IsCorrect)
+            //    success = true;
+            //if (rdoAnswer2.Checked && Options[1].IsCorrect)
+            //    success = true;
+            //if (rdoAnswer3.Checked && Options[2].IsCorrect)
+            //    success = true;
+            //if (rdoAnswer4.Checked && Options[3].IsCorrect)
+            //    success = true;
+            if (answers.Where(a => a.IsAnswer).FirstOrDefault().Content == txtAnswer.Text.Trim())
                 success = true;
             if (success)
                 MessageBox.Show("Success");
@@ -60,6 +63,11 @@ namespace EnglishTester
         private void btnBack_Click(object sender, EventArgs e)
         {
             ClickEvent();
+        }
+
+        private void btnStartTest_Click(object sender, EventArgs e)
+        {
+            QuestionInitiate();
         }
     }
 }

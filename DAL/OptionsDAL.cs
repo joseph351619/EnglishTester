@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 
 namespace EnglishTester.DAL
 {
-    public class AnswersDAL:DALBase<Answers>
+    public class OptionsDAL :DALBase<Options>
     {
-        public void QuestionNoIs(int questionNo)
-        {
-            Data = Data.Where(a => a.QuestionNo == questionNo);
-        }
     }
 }

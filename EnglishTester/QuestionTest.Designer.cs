@@ -40,6 +40,16 @@
             this.lblAnswer4 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.btnBack = new System.Windows.Forms.Button();
+            this.btnStartTest = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.panel2 = new System.Windows.Forms.Panel();
+            this.panel3 = new System.Windows.Forms.Panel();
+            this.txtAnswer = new System.Windows.Forms.TextBox();
+            this.lblQuestionExplanation = new System.Windows.Forms.Label();
+            this.AnswerExplanation = new System.Windows.Forms.Label();
+            this.panel1.SuspendLayout();
+            this.panel2.SuspendLayout();
+            this.panel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -54,7 +64,7 @@
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(74, 42);
+            this.lblQuestion.Location = new System.Drawing.Point(27, 20);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(0, 12);
             this.lblQuestion.TabIndex = 1;
@@ -151,11 +161,73 @@
             this.btnBack.UseVisualStyleBackColor = true;
             this.btnBack.Click += new System.EventHandler(this.btnBack_Click);
             // 
+            // btnStartTest
+            // 
+            this.btnStartTest.Location = new System.Drawing.Point(31, 13);
+            this.btnStartTest.Name = "btnStartTest";
+            this.btnStartTest.Size = new System.Drawing.Size(75, 23);
+            this.btnStartTest.TabIndex = 12;
+            this.btnStartTest.Text = "開始作答";
+            this.btnStartTest.UseVisualStyleBackColor = true;
+            this.btnStartTest.Click += new System.EventHandler(this.btnStartTest_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.lblQuestion);
+            this.panel1.Location = new System.Drawing.Point(60, 42);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(702, 100);
+            this.panel1.TabIndex = 13;
+            // 
+            // panel2
+            // 
+            this.panel2.Controls.Add(this.lblQuestionExplanation);
+            this.panel2.Location = new System.Drawing.Point(60, 160);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(702, 94);
+            this.panel2.TabIndex = 14;
+            // 
+            // panel3
+            // 
+            this.panel3.Controls.Add(this.AnswerExplanation);
+            this.panel3.Location = new System.Drawing.Point(60, 338);
+            this.panel3.Name = "panel3";
+            this.panel3.Size = new System.Drawing.Size(612, 100);
+            this.panel3.TabIndex = 15;
+            // 
+            // txtAnswer
+            // 
+            this.txtAnswer.Location = new System.Drawing.Point(60, 293);
+            this.txtAnswer.Name = "txtAnswer";
+            this.txtAnswer.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer.TabIndex = 16;
+            // 
+            // lblQuestionExplanation
+            // 
+            this.lblQuestionExplanation.AutoSize = true;
+            this.lblQuestionExplanation.Location = new System.Drawing.Point(13, 14);
+            this.lblQuestionExplanation.Name = "lblQuestionExplanation";
+            this.lblQuestionExplanation.Size = new System.Drawing.Size(0, 12);
+            this.lblQuestionExplanation.TabIndex = 0;
+            // 
+            // AnswerExplanation
+            // 
+            this.AnswerExplanation.AutoSize = true;
+            this.AnswerExplanation.Location = new System.Drawing.Point(20, 17);
+            this.AnswerExplanation.Name = "AnswerExplanation";
+            this.AnswerExplanation.Size = new System.Drawing.Size(0, 12);
+            this.AnswerExplanation.TabIndex = 1;
+            // 
             // QuestionTest
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.txtAnswer);
+            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.btnStartTest);
             this.Controls.Add(this.btnBack);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.rdoAnswer4);
@@ -166,10 +238,15 @@
             this.Controls.Add(this.lblAnswer2);
             this.Controls.Add(this.rdoAnswer1);
             this.Controls.Add(this.lblAnswer1);
-            this.Controls.Add(this.lblQuestion);
             this.Controls.Add(this.label1);
             this.Name = "QuestionTest";
             this.Text = "QuestionTest";
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.panel2.ResumeLayout(false);
+            this.panel2.PerformLayout();
+            this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -189,5 +266,12 @@
         private System.Windows.Forms.Label lblAnswer4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnBack;
+        private System.Windows.Forms.Button btnStartTest;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Label lblQuestionExplanation;
+        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Label AnswerExplanation;
+        private System.Windows.Forms.TextBox txtAnswer;
     }
 }

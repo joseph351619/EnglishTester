@@ -19,7 +19,9 @@ namespace EnglishTester.Data.BaseEntities
         }
         #region DbSet
         public virtual DbSet<Questions> Questions { get; set; }
-        public virtual DbSet<Answers> Answers { get; set; }
+        public virtual DbSet<Options> Options { get; set; }
+        public virtual DbSet<Vocabulary> Vocabulary { get; set; }
+        public virtual DbSet<Explanations> Explanations { get; set; }
         #endregion
     }
 }

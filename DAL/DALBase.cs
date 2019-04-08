@@ -1,6 +1,7 @@
 ﻿using EnglishTester.Data.BaseEntities;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
@@ -17,8 +18,12 @@ namespace EnglishTester.DAL
         public DALBase() { Entities = new BaseEntities(); }
         public DALBase(BaseEntities entities) { Entities = entities; }
 
-        public TEntity Read(Expression<Func<TEntity, bool>> predicate)
+        public TEntity Read(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes)
         {
+            foreach (var item in includes)
+            {
+                Entities.Set<TEntity>().AsQueryable().Include(item);
+            }
             return Entities.Set<TEntity>().Where(predicate).FirstOrDefault();
         }
         public void Reads()
@@ -27,7 +32,14 @@ namespace EnglishTester.DAL
         }
         public void Add(TEntity entity)
         {
-            Entities.Set<TEntity>().Add(entity);
+            if (IsValidated(entity))
+            {
+                Entities.Set<TEntity>().Add(entity);
+            }
+            else
+            {
+
+            }
         }
         public void Add(IList<TEntity> entites)
         {
@@ -35,6 +47,10 @@ namespace EnglishTester.DAL
             {
                 Entities.Set<TEntity>().Add(entity);
             }
+        }
+        public virtual bool IsValidated(TEntity entity)
+        {
+            return true;
         }
         public void Save()
         {
