@@ -16,13 +16,15 @@ namespace EnglishTester
     {
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
-        public List<Answers> answers = new List<Answers>();
+        List<Answers> Answers;
+        bool QuestionStatus = false;
         public QuestionTest()
         {
             InitializeComponent();
         }
         public void QuestionInitiate()
         {
+            pnlAnswer.Hide();
             QuestionsBLL bll = new QuestionsBLL();
             List<int> questionNos = bll.GetAllQuestionsNo();
             Random random = new Random();
@@ -32,32 +34,32 @@ namespace EnglishTester
             Questions questions = bll.GetQuestions(questionNo);
             VocabularyBLL vocabularyBLL = new VocabularyBLL();
             lblQuestion.Text = questions.Question;
-            answers.Add( new Answers(1, questions.Vocabulary.Word, true));
-            //lblAnswer1.Text = Options[0];
-            //lblAnswer2.Text = Options[1];
-            //lblAnswer3.Text = Options[2];
-            //lblAnswer4.Text = Options[3];
+            rtxtQuestionExplanation.Text = questions.Explanation;
+            rtxtAnswerExplanation.Text = Answers.Where(a => a.IsCorrect).FirstOrDefault().Explanation;
+            lblCorrectAnswer.Text = string.Empty;
+            txtAnswer.Text = string.Empty;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnConfirm_Click(object sender, EventArgs e)
         {
-            bool success = false;
-            //if (rdoAnswer1.Checked && Options[0].IsCorrect)
-            //    success = true;
-            //if (rdoAnswer2.Checked && Options[1].IsCorrect)
-            //    success = true;
-            //if (rdoAnswer3.Checked && Options[2].IsCorrect)
-            //    success = true;
-            //if (rdoAnswer4.Checked && Options[3].IsCorrect)
-            //    success = true;
-            if (answers.Where(a => a.IsAnswer).FirstOrDefault().Content == txtAnswer.Text.Trim())
-                success = true;
-            if (success)
-                MessageBox.Show("Success");
+            ConfirmAction();
+        }
+        private void ConfirmAction()
+        {
+            //bool success = false;
+            var answer = Answers.Where(a => a.IsCorrect).FirstOrDefault();
+            if (txtAnswer.Text.Trim() == answer.Answer)
+            {
+                lblResult.Text = "True";
+                lblResult.ForeColor = Color.Green;
+            }
             else
-                MessageBox.Show("Fail");
-
-            QuestionInitiate();
+            {
+                lblCorrectAnswer.Text = answer.Answer;
+                lblResult.Text = "Fail";
+                lblResult.ForeColor = Color.Red;
+            }
+            pnlAnswer.Show();
         }
 
         private void btnBack_Click(object sender, EventArgs e)
@@ -65,9 +67,28 @@ namespace EnglishTester
             ClickEvent();
         }
 
-        private void btnStartTest_Click(object sender, EventArgs e)
+        private void btnNext_Click(object sender, EventArgs e)
         {
             QuestionInitiate();
+        }
+
+        private void QuestionTest_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                if (QuestionStatus)
+                {
+                    QuestionStatus = false;
+                    QuestionInitiate();
+                }
+                else
+                {
+                    QuestionStatus = true;
+                    ConfirmAction();
+                }
+                e.Handled = true;
+                e.SuppressKeyPress = true;
+            }
         }
     }
 }

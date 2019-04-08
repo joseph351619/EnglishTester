@@ -10,14 +10,11 @@ namespace EnglishTester.BLL
 {
     public class QuestionsBLL
     {
-        public void InsertQuestion(Questions question, Vocabulary vocabulary, List<Options> options)
+        QuestionsDAL questionsDAL = new QuestionsDAL();
+        public void InsertQuestion(Questions question, List<Answers> answers)
         {
             int questionNo = 0;
-            using (VocabularyDAL dal = new VocabularyDAL())
-            {
-                dal.GetOrAdd(vocabulary);
-            }
-            using (QuestionsDAL dal=new QuestionsDAL())
+            using (QuestionsDAL dal = new QuestionsDAL())
             {
                 question.VocabularyID = vocabulary.ID;
                 dal.Add(question);
@@ -45,6 +42,17 @@ namespace EnglishTester.BLL
                 dal.Reads();
                 return dal.Data.Select(a => a.NO).ToList();
             }
+        }
+        public IEnumerable<Questions> ReadAll()
+        {
+            using (QuestionsDAL dal = new QuestionsDAL())
+            {
+                return dal.ReadAll();
+            }
+        }
+        public void Delete(Questions question)
+        {
+             questionsDAL.Delete(question);
         }
     }
 }
