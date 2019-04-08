@@ -42,6 +42,8 @@ namespace EnglishTester
         {
             this.txtQuestion.DataBindings.Add(new Binding("Text", bdsQuestions, "Question"));
             this.txtQuestionExplanation.DataBindings.Add(new Binding("Text", bdsQuestions, "Explanation"));
+            this.cboAnswerType.DataBindings.Add(new Binding("Text", bdsQuestions, "Type"));
+            this.lblInsertTime.DataBindings.Add(new Binding("Text", bdsQuestions, "InsertTime"));
             //this.txtAnswer.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtAnswerExplanation.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
             //this.txtOption1.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
@@ -118,6 +120,7 @@ namespace EnglishTester
                 {
                     if (text[i] == '.' || text[i] == ',')
                     {
+                        textDisplay += string.IsNullOrEmpty(textDisplay) ? "" : " ";
                         textDisplay += text[i];
                     }
                     else

@@ -67,6 +67,10 @@
             this.txtOption2 = new System.Windows.Forms.TextBox();
             this.txtOptionExplanation3 = new System.Windows.Forms.TextBox();
             this.txtOption3 = new System.Windows.Forms.TextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblInsertTime = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
             this.bdnQuestions.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
@@ -103,19 +107,19 @@
             // 
             this.txtAnswer.Location = new System.Drawing.Point(126, 304);
             this.txtAnswer.Name = "txtAnswer";
-            this.txtAnswer.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswer.Size = new System.Drawing.Size(183, 22);
             this.txtAnswer.TabIndex = 3;
             // 
             // txtOption1
             // 
             this.txtOption1.Location = new System.Drawing.Point(126, 346);
             this.txtOption1.Name = "txtOption1";
-            this.txtOption1.Size = new System.Drawing.Size(100, 22);
+            this.txtOption1.Size = new System.Drawing.Size(183, 22);
             this.txtOption1.TabIndex = 4;
             // 
             // btnStore
             // 
-            this.btnStore.Location = new System.Drawing.Point(712, 464);
+            this.btnStore.Location = new System.Drawing.Point(712, 470);
             this.btnStore.Name = "btnStore";
             this.btnStore.Size = new System.Drawing.Size(75, 23);
             this.btnStore.TabIndex = 7;
@@ -142,7 +146,7 @@
             // 
             // txtQuestionExplanation
             // 
-            this.txtQuestionExplanation.Location = new System.Drawing.Point(126, 203);
+            this.txtQuestionExplanation.Location = new System.Drawing.Point(127, 203);
             this.txtQuestionExplanation.Multiline = true;
             this.txtQuestionExplanation.Name = "txtQuestionExplanation";
             this.txtQuestionExplanation.Size = new System.Drawing.Size(646, 78);
@@ -159,22 +163,22 @@
             // 
             // txtAnswerExplanation
             // 
-            this.txtAnswerExplanation.Location = new System.Drawing.Point(359, 301);
+            this.txtAnswerExplanation.Location = new System.Drawing.Point(435, 301);
             this.txtAnswerExplanation.Name = "txtAnswerExplanation";
-            this.txtAnswerExplanation.Size = new System.Drawing.Size(100, 22);
+            this.txtAnswerExplanation.Size = new System.Drawing.Size(337, 22);
             this.txtAnswerExplanation.TabIndex = 21;
             // 
             // txtOptionExplanation1
             // 
-            this.txtOptionExplanation1.Location = new System.Drawing.Point(359, 346);
+            this.txtOptionExplanation1.Location = new System.Drawing.Point(435, 346);
             this.txtOptionExplanation1.Name = "txtOptionExplanation1";
-            this.txtOptionExplanation1.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation1.Size = new System.Drawing.Size(337, 22);
             this.txtOptionExplanation1.TabIndex = 22;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(275, 304);
+            this.label4.Location = new System.Drawing.Point(351, 304);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(53, 12);
             this.label4.TabIndex = 25;
@@ -182,7 +186,7 @@
             // 
             // btnBack
             // 
-            this.btnBack.Location = new System.Drawing.Point(712, 43);
+            this.btnBack.Location = new System.Drawing.Point(712, 28);
             this.btnBack.Name = "btnBack";
             this.btnBack.Size = new System.Drawing.Size(75, 23);
             this.btnBack.TabIndex = 26;
@@ -220,7 +224,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(275, 349);
+            this.label7.Location = new System.Drawing.Point(351, 349);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(53, 12);
             this.label7.TabIndex = 30;
@@ -356,37 +360,75 @@
             // 
             // txtOptionExplanation2
             // 
-            this.txtOptionExplanation2.Location = new System.Drawing.Point(359, 386);
+            this.txtOptionExplanation2.Location = new System.Drawing.Point(435, 386);
             this.txtOptionExplanation2.Name = "txtOptionExplanation2";
-            this.txtOptionExplanation2.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation2.Size = new System.Drawing.Size(337, 22);
             this.txtOptionExplanation2.TabIndex = 33;
             // 
             // txtOption2
             // 
             this.txtOption2.Location = new System.Drawing.Point(126, 386);
             this.txtOption2.Name = "txtOption2";
-            this.txtOption2.Size = new System.Drawing.Size(100, 22);
+            this.txtOption2.Size = new System.Drawing.Size(183, 22);
             this.txtOption2.TabIndex = 32;
             // 
             // txtOptionExplanation3
             // 
-            this.txtOptionExplanation3.Location = new System.Drawing.Point(359, 429);
+            this.txtOptionExplanation3.Location = new System.Drawing.Point(435, 429);
             this.txtOptionExplanation3.Name = "txtOptionExplanation3";
-            this.txtOptionExplanation3.Size = new System.Drawing.Size(100, 22);
+            this.txtOptionExplanation3.Size = new System.Drawing.Size(337, 22);
             this.txtOptionExplanation3.TabIndex = 36;
             // 
             // txtOption3
             // 
             this.txtOption3.Location = new System.Drawing.Point(126, 429);
             this.txtOption3.Name = "txtOption3";
-            this.txtOption3.Size = new System.Drawing.Size(100, 22);
+            this.txtOption3.Size = new System.Drawing.Size(183, 22);
             this.txtOption3.TabIndex = 35;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(524, 54);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(53, 12);
+            this.label8.TabIndex = 37;
+            this.label8.Text = "加入時間";
+            // 
+            // lblInsertTime
+            // 
+            this.lblInsertTime.AutoSize = true;
+            this.lblInsertTime.Location = new System.Drawing.Point(596, 54);
+            this.lblInsertTime.Name = "lblInsertTime";
+            this.lblInsertTime.Size = new System.Drawing.Size(0, 12);
+            this.lblInsertTime.TabIndex = 38;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(368, 53);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(0, 12);
+            this.label10.TabIndex = 41;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(287, 48);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 23);
+            this.button2.TabIndex = 42;
+            this.button2.Text = "選擇來源";
+            this.button2.UseVisualStyleBackColor = true;
             // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 517);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblInsertTime);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.txtOptionExplanation3);
             this.Controls.Add(this.txtOption3);
             this.Controls.Add(this.txtOptionExplanation2);
@@ -462,6 +504,10 @@
         private System.Windows.Forms.TextBox txtOption2;
         private System.Windows.Forms.TextBox txtOptionExplanation3;
         private System.Windows.Forms.TextBox txtOption3;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblInsertTime;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Button button2;
     }
 }
 

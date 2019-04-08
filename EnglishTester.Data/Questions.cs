@@ -17,6 +17,9 @@ namespace EnglishTester.Data
         public string Question { get; set; }
         public string Explanation { get; set; }
         public AnswerType Type { get; set; }
-
+        public DateTime InsertTime { get { return DateTime.Now; } }
+        public int SourceID { get; set; }
+        [ForeignKey("SourceID")]
+        public QuestionSource Source { get; set; }
     }
 }
