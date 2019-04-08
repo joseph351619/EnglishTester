@@ -15,5 +15,8 @@ namespace EnglishTester.Data
         public int ID { get; set; }
         public string Source { get; set; }
         public int SourceTypeID { get; set; }
+        [ForeignKey("SourceTypeID")]
+        public SourceType Type { get; set; }
+        public virtual ICollection<Questions> Questions { get; set; }
     }
 }

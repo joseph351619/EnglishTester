@@ -48,6 +48,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="IDAL.cs" />
     <Compile Include="OptionsDAL.cs" />
     <Compile Include="VocabularyDAL.cs" />
     <Compile Include="Class1.cs" />

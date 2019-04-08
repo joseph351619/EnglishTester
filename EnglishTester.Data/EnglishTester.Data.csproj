@@ -48,14 +48,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answers.cs" />
     <Compile Include="Migrations\201904030759166_AddVocabularyTable.cs" />
     <Compile Include="Migrations\201904030759166_AddVocabularyTable.Designer.cs">
       <DependentUpon>201904030759166_AddVocabularyTable.cs</DependentUpon>
     </Compile>
-    <Compile Include="Option.cs" />
+    <Compile Include="Entity\Option.cs" />
     <Compile Include="BaseEntities\BaseEntities.cs" />
-    <Compile Include="Explanations.cs" />
+    <Compile Include="Entity\Explanations.cs" />
     <Compile Include="Migrations\201903311437389_initialCreate.cs" />
     <Compile Include="Migrations\201903311437389_initialCreate.Designer.cs">
       <DependentUpon>201903311437389_initialCreate.cs</DependentUpon>
@@ -72,12 +71,20 @@
     <Compile Include="Migrations\201904012350149_AddAnswerType.Designer.cs">
       <DependentUpon>201904012350149_AddAnswerType.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904080608140_AddVocabularyAndQuestionRelatedTable.cs" />
+    <Compile Include="Migrations\201904080608140_AddVocabularyAndQuestionRelatedTable.Designer.cs">
+      <DependentUpon>201904080608140_AddVocabularyAndQuestionRelatedTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201904080629308_AddInsertTimeInQuestions.cs" />
+    <Compile Include="Migrations\201904080629308_AddInsertTimeInQuestions.Designer.cs">
+      <DependentUpon>201904080629308_AddInsertTimeInQuestions.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Questions.cs" />
+    <Compile Include="Entity\Questions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionSource.cs" />
-    <Compile Include="SourceType.cs" />
-    <Compile Include="Vocabulary.cs" />
+    <Compile Include="Entity\QuestionSource.cs" />
+    <Compile Include="Entity\SourceType.cs" />
+    <Compile Include="Entity\Vocabulary.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -98,6 +105,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904030759166_AddVocabularyTable.resx">
       <DependentUpon>201904030759166_AddVocabularyTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080608140_AddVocabularyAndQuestionRelatedTable.resx">
+      <DependentUpon>201904080608140_AddVocabularyAndQuestionRelatedTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904080629308_AddInsertTimeInQuestions.resx">
+      <DependentUpon>201904080629308_AddInsertTimeInQuestions.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

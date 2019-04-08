@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace EnglishTester.DAL
 {
-    public class DALBase<TEntity> : IDisposable where TEntity:class
+    public class DALBase<TEntity> : IDAL<TEntity>, IDisposable where TEntity : class
     {
         protected BaseEntities Entities;
         bool Disposed;
@@ -29,6 +29,11 @@ namespace EnglishTester.DAL
         public void Reads()
         {
             Data = Entities.Set<TEntity>().AsQueryable();
+        }
+        public IEnumerable<TEntity> ReadAll()
+        {
+            Reads();
+            return Data.ToList();
         }
         public void Add(TEntity entity)
         {

@@ -16,7 +16,7 @@ namespace EnglishTester
     {
         public delegate void ClickEventHandler();
         public event ClickEventHandler ClickEvent;
-        List<Answers> Answers;
+        List<Options> Options;
         bool QuestionStatus = false;
         public QuestionTest()
         {
@@ -35,7 +35,7 @@ namespace EnglishTester
             VocabularyBLL vocabularyBLL = new VocabularyBLL();
             lblQuestion.Text = questions.Question;
             rtxtQuestionExplanation.Text = questions.Explanation;
-            rtxtAnswerExplanation.Text = Answers.Where(a => a.IsCorrect).FirstOrDefault().Explanation;
+            rtxtAnswerExplanation.Text = Options.Where(a => a.IsAnswer).FirstOrDefault().Explanation;
             lblCorrectAnswer.Text = string.Empty;
             txtAnswer.Text = string.Empty;
         }
@@ -47,15 +47,15 @@ namespace EnglishTester
         private void ConfirmAction()
         {
             //bool success = false;
-            var answer = Answers.Where(a => a.IsCorrect).FirstOrDefault();
-            if (txtAnswer.Text.Trim() == answer.Answer)
+            var option = Options.Where(a => a.IsAnswer).FirstOrDefault();
+            if (txtAnswer.Text.Trim() == option.Content)
             {
                 lblResult.Text = "True";
                 lblResult.ForeColor = Color.Green;
             }
             else
             {
-                lblCorrectAnswer.Text = answer.Answer;
+                lblCorrectAnswer.Text = option.Content;
                 lblResult.Text = "Fail";
                 lblResult.ForeColor = Color.Red;
             }

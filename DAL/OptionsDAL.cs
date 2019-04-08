@@ -9,5 +9,11 @@ namespace EnglishTester.DAL
 {
     public class OptionsDAL :DALBase<Options>
     {
+
+        public IEnumerable<Options> GetOptions(int questionNO)
+        {
+            Reads();
+            return Data.Where(a => a.QuestionNo == questionNO);
+        }
     }
 }
