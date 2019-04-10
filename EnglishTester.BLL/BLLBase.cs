@@ -18,17 +18,19 @@ namespace EnglishTester.BLL
             return IDAL.Read(predicate, includes);
         }
 
-        public IEnumerable<TEntity> ReadAll()
+        public IEnumerable<TEntity> ReadAll(params Expression<Func<TEntity, object>>[] includes)
         {
             return IDAL.ReadAll();
         }
         public void Add(TEntity entity)
         {
             IDAL.Add(entity);
+            IDAL.Save();
         }
         public void Add(IList<TEntity> entities)
         {
             IDAL.Add(entities);
+            IDAL.Save();
         }
         public void Delete(TEntity entity)
         {

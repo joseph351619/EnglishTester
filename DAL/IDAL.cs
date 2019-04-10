@@ -10,10 +10,10 @@ namespace EnglishTester.DAL
     public interface IDAL<TEntity>
     {
         TEntity Read(Expression<Func<TEntity, bool>> predicate, params Expression<Func<TEntity, object>>[] includes);
-        void Reads();
+        void Reads(params Expression<Func<TEntity, object>>[] includes);
         void Add(TEntity entity);
         void Add(IList<TEntity> entites);
-        IEnumerable<TEntity> ReadAll();
+        IEnumerable<TEntity> ReadAll(params Expression<Func<TEntity, object>>[] includes);
         void Delete(TEntity entity);
         void Save();
 

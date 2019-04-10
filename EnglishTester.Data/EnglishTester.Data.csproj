@@ -79,6 +79,10 @@
     <Compile Include="Migrations\201904080629308_AddInsertTimeInQuestions.Designer.cs">
       <DependentUpon>201904080629308_AddInsertTimeInQuestions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201904101320450_AddQuestionSource.cs" />
+    <Compile Include="Migrations\201904101320450_AddQuestionSource.Designer.cs">
+      <DependentUpon>201904101320450_AddQuestionSource.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Entity\Questions.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -111,6 +115,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201904080629308_AddInsertTimeInQuestions.resx">
       <DependentUpon>201904080629308_AddInsertTimeInQuestions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201904101320450_AddQuestionSource.resx">
+      <DependentUpon>201904101320450_AddQuestionSource.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

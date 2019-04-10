@@ -26,13 +26,17 @@ namespace EnglishTester.DAL
             }
             return Entities.Set<TEntity>().Where(predicate).FirstOrDefault();
         }
-        public void Reads()
+        public void Reads(params Expression<Func<TEntity, object>>[] includes)
         {
+            foreach (var item in includes)
+            {
+                Entities.Set<TEntity>().AsQueryable().Include(item);
+            }
             Data = Entities.Set<TEntity>().AsQueryable();
         }
-        public IEnumerable<TEntity> ReadAll()
+        public IEnumerable<TEntity> ReadAll(params Expression<Func<TEntity, object>>[] includes)
         {
-            Reads();
+            Reads(includes);
             return Data.ToList();
         }
         public void Add(TEntity entity)

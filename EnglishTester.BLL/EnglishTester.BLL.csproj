@@ -44,6 +44,7 @@
     <Compile Include="BLLBase.cs" />
     <Compile Include="IBLL.cs" />
     <Compile Include="OptionsBLL.cs" />
+    <Compile Include="QuestionSourceBLL.cs" />
     <Compile Include="VocabularyBLL.cs" />
     <Compile Include="QuestionsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

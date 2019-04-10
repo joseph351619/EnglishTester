@@ -23,7 +23,7 @@ namespace EnglishTester.Data
         public virtual Vocabulary Vocabulary { get; set; }
         public int? SourceID { get; set; }
         [ForeignKey("SourceID")]
-        public QuestionSource Source { get; set; }
+        public virtual QuestionSource Source { get; set; }
 
     }
 }

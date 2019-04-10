@@ -23,7 +23,9 @@ namespace EnglishTester
         Questions _currentQuestion = null;
         List<Options> _currentOption = null;
         bool QuestionConfirm = false;
+        int QuestionSourceID;
         Label[] words;
+        SearchBox searchBox;
         public QuestionInsert()
         {
             InitializeComponent();
@@ -35,8 +37,11 @@ namespace EnglishTester
             cboAnswerType.DisplayMember = AnswerType.DisplayName();
             cboAnswerType.ValueMember = AnswerType.ValueName();
             this.bdsQuestions.PositionChanged += bdsQuestions_BindingSource_PositionChanged;
-            this.bdsQuestions.DataSource = this.questionsBLL.ReadAll();
+            this.bdsQuestions.DataSource = this.questionsBLL.ReadAll(a => a.Source);
             TextBoxDataBinding();
+            searchBox = new SearchBox();
+            searchBox.ConfirmEvent += SelectSourceConfirm;
+            searchBox.CancelEvent += SelectSourceCancel;
         }
         private void TextBoxDataBinding()
         {
@@ -44,6 +49,7 @@ namespace EnglishTester
             this.txtQuestionExplanation.DataBindings.Add(new Binding("Text", bdsQuestions, "Explanation"));
             this.cboAnswerType.DataBindings.Add(new Binding("Text", bdsQuestions, "Type"));
             this.lblInsertTime.DataBindings.Add(new Binding("Text", bdsQuestions, "InsertTime"));
+            lblSourceName.DataBindings.Add(new Binding("Text", bdsQuestions, "Source.Source"));
             //this.txtAnswer.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtAnswerExplanation.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
             //this.txtOption1.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
@@ -59,7 +65,9 @@ namespace EnglishTester
             Questions question = new Questions() {
                 Question = questionText,
                 Explanation = txtQuestionExplanation.Text,
-                Type = (Enums.AnswerType)cboAnswerType.SelectedValue };
+                Type = (Enums.AnswerType)cboAnswerType.SelectedValue,
+                SourceID = QuestionSourceID
+            };
             List<Options> answers = new List<Options>();
             answers.Add(new Options() { Content = txtAnswer.Text.Trim(), Type= (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsAnswer = true});
             //answers.Add(new Answers() { Answer = txtOption1.Text, Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtOptionExplanation1.Text, IsCorrect = false });
@@ -197,9 +205,18 @@ namespace EnglishTester
 
         private void btnSelectSource_Click(object sender, EventArgs e)
         {
-            SearchBox searchBox = new SearchBox();
-            searchBox.Location = new Point(MousePosition.X - Location.X, MousePosition.Y - Location.Y);
-
+            searchBox.Location = new Point(MousePosition.X, MousePosition.Y);
+            searchBox.Show();
+        }
+        private void SelectSourceConfirm()
+        {
+            searchBox.Hide();
+            QuestionSourceID = searchBox.SourceID;
+            lblSourceName.Text = searchBox.SourceName;
+        }
+        private void SelectSourceCancel()
+        {
+            searchBox.Hide();
         }
     }
 }

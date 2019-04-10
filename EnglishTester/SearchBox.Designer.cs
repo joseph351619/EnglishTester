@@ -33,6 +33,7 @@
             this.lbSearchResult = new System.Windows.Forms.ListBox();
             this.btnConfirm = new System.Windows.Forms.Button();
             this.bdsSearch = new System.Windows.Forms.BindingSource(this.components);
+            this.btnCancel = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bdsSearch)).BeginInit();
             this.SuspendLayout();
             // 
@@ -61,18 +62,31 @@
             this.btnConfirm.TabIndex = 2;
             this.btnConfirm.Text = "確認";
             this.btnConfirm.UseVisualStyleBackColor = true;
+            this.btnConfirm.Click += new System.EventHandler(this.btnConfirm_Click);
+            // 
+            // btnCancel
+            // 
+            this.btnCancel.Location = new System.Drawing.Point(12, 218);
+            this.btnCancel.Name = "btnCancel";
+            this.btnCancel.Size = new System.Drawing.Size(75, 23);
+            this.btnCancel.TabIndex = 3;
+            this.btnCancel.Text = "取消";
+            this.btnCancel.UseVisualStyleBackColor = true;
+            this.btnCancel.Click += new System.EventHandler(this.btnCancel_Click);
             // 
             // SearchBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(298, 250);
+            this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.btnConfirm);
             this.Controls.Add(this.lbSearchResult);
             this.Controls.Add(this.txtSearch);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "SearchBox";
             this.Text = "SearchBox";
+            this.Deactivate += new System.EventHandler(this.SearchBox_Deactivate);
             this.Load += new System.EventHandler(this.SearchBox_Load);
             ((System.ComponentModel.ISupportInitialize)(this.bdsSearch)).EndInit();
             this.ResumeLayout(false);
@@ -86,5 +100,6 @@
         private System.Windows.Forms.ListBox lbSearchResult;
         private System.Windows.Forms.Button btnConfirm;
         private System.Windows.Forms.BindingSource bdsSearch;
+        private System.Windows.Forms.Button btnCancel;
     }
 }

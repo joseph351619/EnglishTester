@@ -68,7 +68,7 @@
             this.txtOption3 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.lblInsertTime = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
+            this.lblSourceName = new System.Windows.Forms.Label();
             this.btnSelectSource = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
@@ -273,7 +273,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(28, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(27, 22);
             this.bindingNavigatorCountItem.Text = "/{0}";
             this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
@@ -401,13 +401,13 @@
             this.lblInsertTime.Size = new System.Drawing.Size(0, 12);
             this.lblInsertTime.TabIndex = 38;
             // 
-            // label10
+            // lblSourceName
             // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(368, 53);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(0, 12);
-            this.label10.TabIndex = 41;
+            this.lblSourceName.AutoSize = true;
+            this.lblSourceName.Location = new System.Drawing.Point(368, 53);
+            this.lblSourceName.Name = "lblSourceName";
+            this.lblSourceName.Size = new System.Drawing.Size(0, 12);
+            this.lblSourceName.TabIndex = 41;
             // 
             // btnSelectSource
             // 
@@ -425,7 +425,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 517);
             this.Controls.Add(this.btnSelectSource);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.lblSourceName);
             this.Controls.Add(this.lblInsertTime);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.txtOptionExplanation3);
@@ -503,7 +503,7 @@
         private System.Windows.Forms.TextBox txtOption3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblInsertTime;
-        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblSourceName;
         private System.Windows.Forms.Button btnSelectSource;
     }
 }
