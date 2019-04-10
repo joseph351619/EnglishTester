@@ -79,6 +79,7 @@ namespace EnglishTester
             //txtQuestion.Text = string.Empty;
             //txtAnswerExplanation.Text = string.Empty;
             //txtQuestionExplanation.Text = string.Empty;
+            bdsQuestions.ResetBindings(false);
             txtQuestion.BringToFront();
         }
 
@@ -119,6 +120,10 @@ namespace EnglishTester
         private void QuestionWords_Click(object sender, EventArgs e)
         {
             var text= ((Label)sender).Tag.ToString();
+            if (text.Contains("_"))
+            {
+                text = txtAnswer.Text;
+            }
             var textDisplay = ((Label)sender).Text;
             if(text == textDisplay)
             {
@@ -160,6 +165,9 @@ namespace EnglishTester
                 this.bdsQuestions.DataSource = null;
                 return;
             }
+            QuestionConfirm = false;
+            txtQuestion.BringToFront();
+            ClearOptions();
             this._currentQuestion = (Questions)source.Current;
             this._currentOption = answersBLL.GetOptions(_currentQuestion.NO).ToList();
             if (_currentOption == null || _currentOption.Count() == 0)
@@ -189,11 +197,17 @@ namespace EnglishTester
         {
             var question = new Questions();
             e.NewObject = question;
-
+            ClearOptions();
             //List<Options> answers = new List<Options>();
             //answers.Add(new Options() { Content = txtAnswer.Text.Trim(), Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsAnswer = true });
             //this.questionsBLL.InsertQuestion(question, answers);
+            bdsQuestions.DataSource = this.questionsBLL.ReadAll(a => a.Source);
             bdsQuestions.MoveLast();
+        }
+        private void ClearOptions()
+        {
+            txtAnswer.Text = string.Empty;
+            txtAnswerExplanation.Text = string.Empty;
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
