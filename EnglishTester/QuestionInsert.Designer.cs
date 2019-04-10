@@ -46,6 +46,7 @@
             this.btnBack = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.cboAnswerType = new System.Windows.Forms.ComboBox();
+            this.bdsQuestions = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.bdnQuestions = new System.Windows.Forms.BindingNavigator(this.components);
@@ -60,9 +61,7 @@
             this.bindingNavigatorMoveLastItem = new System.Windows.Forms.ToolStripButton();
             this.bindingNavigatorSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.bindingNavigatorDeleteItem = new System.Windows.Forms.ToolStripButton();
-            this.bdsQuestions = new System.Windows.Forms.BindingSource(this.components);
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.bdsOptions = new System.Windows.Forms.BindingSource(this.components);
             this.txtOptionExplanation2 = new System.Windows.Forms.TextBox();
             this.txtOption2 = new System.Windows.Forms.TextBox();
             this.txtOptionExplanation3 = new System.Windows.Forms.TextBox();
@@ -70,11 +69,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblInsertTime = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSelectSource = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
             this.bdnQuestions.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsOptions)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -212,6 +210,10 @@
             this.cboAnswerType.Size = new System.Drawing.Size(121, 20);
             this.cboAnswerType.TabIndex = 28;
             // 
+            // bdsQuestions
+            // 
+            this.bdsQuestions.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bdsQuestions_AddingNew);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -271,7 +273,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(27, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(28, 22);
             this.bindingNavigatorCountItem.Text = "/{0}";
             this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
@@ -345,10 +347,6 @@
             this.bindingNavigatorDeleteItem.Text = "刪除";
             this.bindingNavigatorDeleteItem.Click += new System.EventHandler(this.bindingNavigatorDeleteItem_Click);
             // 
-            // bdsQuestions
-            // 
-            this.bdsQuestions.AddingNew += new System.ComponentModel.AddingNewEventHandler(this.bdsQuestions_AddingNew);
-            // 
             // toolStripButton1
             // 
             this.toolStripButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
@@ -411,21 +409,22 @@
             this.label10.Size = new System.Drawing.Size(0, 12);
             this.label10.TabIndex = 41;
             // 
-            // button2
+            // btnSelectSource
             // 
-            this.button2.Location = new System.Drawing.Point(287, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 42;
-            this.button2.Text = "選擇來源";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSelectSource.Location = new System.Drawing.Point(287, 48);
+            this.btnSelectSource.Name = "btnSelectSource";
+            this.btnSelectSource.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectSource.TabIndex = 42;
+            this.btnSelectSource.Text = "選擇來源";
+            this.btnSelectSource.UseVisualStyleBackColor = true;
+            this.btnSelectSource.Click += new System.EventHandler(this.btnSelectSource_Click);
             // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 517);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSelectSource);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblInsertTime);
             this.Controls.Add(this.label8);
@@ -455,11 +454,10 @@
             this.Name = "QuestionInsert";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.QuestionInsert_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).EndInit();
             this.bdnQuestions.ResumeLayout(false);
             this.bdnQuestions.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.bdsOptions)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -499,7 +497,6 @@
         private System.Windows.Forms.ToolStripSeparator bindingNavigatorSeparator2;
         private System.Windows.Forms.BindingSource bdsQuestions;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.BindingSource bdsOptions;
         private System.Windows.Forms.TextBox txtOptionExplanation2;
         private System.Windows.Forms.TextBox txtOption2;
         private System.Windows.Forms.TextBox txtOptionExplanation3;
@@ -507,7 +504,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblInsertTime;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSelectSource;
     }
 }
 

@@ -19,21 +19,21 @@ namespace EnglishTester
         public event ClickEventHandler ClickEvent;
         //int testWordsSelected = 0;
         QuestionsBLL questionsBLL = new QuestionsBLL();
-        AnswersBLL answersBLL = new AnswersBLL();
+        OptionsBLL answersBLL = new OptionsBLL();
         Questions _currentQuestion = null;
-        List<Answers> _currentOption = null;
+        List<Options> _currentOption = null;
         bool QuestionConfirm = false;
         Label[] words;
         public QuestionInsert()
         {
             InitializeComponent();
             bdnQuestions.BindingSource = bdsQuestions;
-            cboAnswerType.DataSource = AnswerType.Types();
-            cboAnswerType.DisplayMember = AnswerType.DisplayName();
-            cboAnswerType.ValueMember = AnswerType.ValueName();
         }
         private void QuestionInsert_Load(object sender, EventArgs e)
         {
+            cboAnswerType.DataSource = AnswerType.Types();
+            cboAnswerType.DisplayMember = AnswerType.DisplayName();
+            cboAnswerType.ValueMember = AnswerType.ValueName();
             this.bdsQuestions.PositionChanged += bdsQuestions_BindingSource_PositionChanged;
             this.bdsQuestions.DataSource = this.questionsBLL.ReadAll();
             TextBoxDataBinding();
@@ -60,17 +60,17 @@ namespace EnglishTester
                 Question = questionText,
                 Explanation = txtQuestionExplanation.Text,
                 Type = (Enums.AnswerType)cboAnswerType.SelectedValue };
-            List<Answers> answers = new List<Answers>();
-            answers.Add(new Answers() { Answer = txtAnswer.Text.Trim(), Type= (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsCorrect = true});
+            List<Options> answers = new List<Options>();
+            answers.Add(new Options() { Content = txtAnswer.Text.Trim(), Type= (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsAnswer = true});
             //answers.Add(new Answers() { Answer = txtOption1.Text, Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtOptionExplanation1.Text, IsCorrect = false });
             QuestionsBLL BLL = new QuestionsBLL();
             BLL.InsertQuestion(question, answers);
             MessageBox.Show("Success");
-            txtAnswer.Text = string.Empty;
-            //txtOption1.Text = string.Empty;
-            txtQuestion.Text = string.Empty;
-            txtAnswerExplanation.Text = string.Empty;
-            txtQuestionExplanation.Text = string.Empty;
+            //txtAnswer.Text = string.Empty;
+            ////txtOption1.Text = string.Empty;
+            //txtQuestion.Text = string.Empty;
+            //txtAnswerExplanation.Text = string.Empty;
+            //txtQuestionExplanation.Text = string.Empty;
             txtQuestion.BringToFront();
         }
 
@@ -130,12 +130,13 @@ namespace EnglishTester
                     }
                 }
                 ((Label)sender).Text = textDisplay;
-                txtAnswer.Text = filterText;
+                txtAnswer.Text += string.IsNullOrEmpty(txtAnswer.Text) ? filterText : "..."+filterText;
             }
             else
             {
                 ((Label)sender).Text = text;
                 txtAnswer.Text = txtAnswer.Text.Replace(text, "");
+                txtAnswer.Text = txtAnswer.Text.Trim('.');
             }
         }
 
@@ -152,24 +153,26 @@ namespace EnglishTester
                 return;
             }
             this._currentQuestion = (Questions)source.Current;
-            this._currentOption = answersBLL.GetAnswers(_currentQuestion.NO).ToList();
-            txtAnswer.Text = _currentOption.Where(a => a.IsCorrect).FirstOrDefault().Answer;
-            txtAnswerExplanation.Text = _currentOption.Where(a => a.IsCorrect).FirstOrDefault().Explanation;
-            var options = _currentOption.Where(a => !a.IsCorrect).ToList();
+            this._currentOption = answersBLL.GetOptions(_currentQuestion.NO).ToList();
+            if (_currentOption == null || _currentOption.Count() == 0)
+                return;
+            txtAnswer.Text = _currentOption.Where(a => a.IsAnswer).FirstOrDefault().Content;
+            txtAnswerExplanation.Text = _currentOption.Where(a => a.IsAnswer).FirstOrDefault().Explanation;
+            var options = _currentOption.Where(a => !a.IsAnswer).ToList();
             if (options.Count() > 0)
             {
-                txtOption1.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[0].Answer;
-                txtOptionExplanation1.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[0].Explanation;
+                txtOption1.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[0].Content;
+                txtOptionExplanation1.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[0].Explanation;
             }
             if(options.Count() > 1)
             {
-                txtOption2.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[1].Answer;
-                txtOptionExplanation2.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[1].Explanation;
+                txtOption2.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[1].Content;
+                txtOptionExplanation2.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[1].Explanation;
             }
             if(options.Count() > 2)
             {
-                txtOption3.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[2].Answer;
-                txtOptionExplanation3.Text = _currentOption.Where(a => !a.IsCorrect).ToList()[2].Explanation;
+                txtOption3.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[2].Content;
+                txtOptionExplanation3.Text = _currentOption.Where(a => !a.IsAnswer).ToList()[2].Explanation;
             }
             //this.bdsOptions.DataSource = answersBLL.GetAnswers(_currentQuestion.NO);
         }
@@ -179,15 +182,24 @@ namespace EnglishTester
             var question = new Questions();
             e.NewObject = question;
 
-            List<Answers> answers = new List<Answers>();
-            answers.Add(new Answers() { Answer = txtAnswer.Text.Trim(), Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsCorrect = true });
-            this.questionsBLL.InsertQuestion(question, answers);
+            //List<Options> answers = new List<Options>();
+            //answers.Add(new Options() { Content = txtAnswer.Text.Trim(), Type = (Enums.AnswerType)cboAnswerType.SelectedValue, Explanation = txtAnswerExplanation.Text, IsAnswer = true });
+            //this.questionsBLL.InsertQuestion(question, answers);
+            bdsQuestions.MoveLast();
         }
 
         private void bindingNavigatorDeleteItem_Click(object sender, EventArgs e)
         {
             var question = (Questions)this.bdsQuestions.Current;
             this.questionsBLL.Delete(question);
+            bdsQuestions.RemoveCurrent();
+        }
+
+        private void btnSelectSource_Click(object sender, EventArgs e)
+        {
+            SearchBox searchBox = new SearchBox();
+            searchBox.Location = new Point(MousePosition.X - Location.X, MousePosition.Y - Location.Y);
+
         }
     }
 }

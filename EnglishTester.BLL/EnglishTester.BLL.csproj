@@ -41,7 +41,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AnswersBLL.cs" />
+    <Compile Include="BLLBase.cs" />
+    <Compile Include="IBLL.cs" />
+    <Compile Include="OptionsBLL.cs" />
+    <Compile Include="VocabularyBLL.cs" />
     <Compile Include="QuestionsBLL.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="QuestionSourceBLL.cs" />

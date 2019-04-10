@@ -9,10 +9,5 @@ namespace EnglishTester.DAL
 {
     public class QuestionsDAL:DALBase<Questions>
     {
-        public IEnumerable<Questions> ReadAll()
-        {
-            Reads();
-            return Data.ToList();
-        }
     }
 }

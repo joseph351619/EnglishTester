@@ -8,12 +8,12 @@ using System.Threading.Tasks;
 
 namespace EnglishTester.Data
 {
-    public class QuestionSource
+    public class SourceType
     {
         [Key]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ID { get; set; }
-        public string Source { get; set; }
-        public int SourceTypeID { get; set; }
+        public string Type { get; set; }
+        public virtual ICollection<QuestionSource> Sources{ get; set; }
     }
 }

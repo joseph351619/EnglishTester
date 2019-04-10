@@ -57,7 +57,7 @@
             // lblQuestion
             // 
             this.lblQuestion.AutoSize = true;
-            this.lblQuestion.Location = new System.Drawing.Point(74, 42);
+            this.lblQuestion.Location = new System.Drawing.Point(27, 20);
             this.lblQuestion.Name = "lblQuestion";
             this.lblQuestion.Size = new System.Drawing.Size(0, 12);
             this.lblQuestion.TabIndex = 1;
