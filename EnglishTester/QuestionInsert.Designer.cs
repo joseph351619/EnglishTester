@@ -69,7 +69,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.lblInsertTime = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.btnSelectSource = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
             this.bdnQuestions.SuspendLayout();
@@ -409,21 +409,22 @@
             this.label10.Size = new System.Drawing.Size(0, 12);
             this.label10.TabIndex = 41;
             // 
-            // button2
+            // btnSelectSource
             // 
-            this.button2.Location = new System.Drawing.Point(287, 48);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 42;
-            this.button2.Text = "選擇來源";
-            this.button2.UseVisualStyleBackColor = true;
+            this.btnSelectSource.Location = new System.Drawing.Point(287, 48);
+            this.btnSelectSource.Name = "btnSelectSource";
+            this.btnSelectSource.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectSource.TabIndex = 42;
+            this.btnSelectSource.Text = "選擇來源";
+            this.btnSelectSource.UseVisualStyleBackColor = true;
+            this.btnSelectSource.Click += new System.EventHandler(this.btnSelectSource_Click);
             // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 517);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.btnSelectSource);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.lblInsertTime);
             this.Controls.Add(this.label8);
@@ -503,7 +504,7 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label lblInsertTime;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button btnSelectSource;
     }
 }
 

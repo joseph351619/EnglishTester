@@ -194,5 +194,12 @@ namespace EnglishTester
             this.questionsBLL.Delete(question);
             bdsQuestions.RemoveCurrent();
         }
+
+        private void btnSelectSource_Click(object sender, EventArgs e)
+        {
+            SearchBox searchBox = new SearchBox();
+            searchBox.Location = new Point(MousePosition.X - Location.X, MousePosition.Y - Location.Y);
+
+        }
     }
 }
