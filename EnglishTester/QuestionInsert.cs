@@ -13,6 +13,45 @@ using EnglishTester.Common;
 
 namespace EnglishTester
 {
+
+    //public class TextBox : System.Windows.Forms.TextBox
+    //{
+    //    private System.Timers.Timer _timer;
+    //    public TextBox()
+    //    {
+    //        this._timer = new System.Timers.Timer(1000);
+    //        this._timer.Elapsed += timer_Elapsed;
+    //    }
+    //    private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs args)
+    //    {
+    //        this._timer.Stop();
+    //        this.BeginInvoke(new MethodInvoker(this.OnTextChangedComplete));
+    //    }
+    //    public event EventHandler<EventArgs> TextChangedComplete;
+    //    private void OnTextChangedComplete()
+    //    {
+    //        this.TextChangedComplete?.Invoke(this, new EventArgs());
+    //    }
+    //    protected override void OnTextChanged(EventArgs e)
+    //    {
+    //        if (!this._timer.Enabled)
+    //            this._timer.Start();
+    //        else
+    //        {
+    //            this._timer.Stop();
+    //            this._timer.Start();
+    //        }
+    //        base.OnTextChanged(e);
+    //    }
+    //    protected override void Dispose(bool disposing)
+    //    {
+    //        if (disposing)
+    //        {
+    //            this._timer?.Dispose();
+    //        }
+    //        base.Dispose(disposing);
+    //    }
+    //}
     public partial class QuestionInsert : Form
     {
         public delegate void ClickEventHandler();
@@ -20,16 +59,20 @@ namespace EnglishTester
         //int testWordsSelected = 0;
         QuestionsBLL questionsBLL = new QuestionsBLL();
         OptionsBLL answersBLL = new OptionsBLL();
+        VocabularyBLL vocabularyBLL = new VocabularyBLL();
         Questions _currentQuestion = null;
         List<Options> _currentOption = null;
         bool QuestionConfirm = false;
         int QuestionSourceID;
         Label[] words;
         SearchBox searchBox;
+        System.Timers.Timer _timer;
         public QuestionInsert()
         {
             InitializeComponent();
             bdnQuestions.BindingSource = bdsQuestions;
+            this._timer = new System.Timers.Timer(1000);
+            this._timer.Elapsed += timer_Elapsed;
         }
         private void QuestionInsert_Load(object sender, EventArgs e)
         {
@@ -50,11 +93,16 @@ namespace EnglishTester
             this.cboAnswerType.DataBindings.Add(new Binding("Text", bdsQuestions, "Type"));
             this.lblInsertTime.DataBindings.Add(new Binding("Text", bdsQuestions, "InsertTime"));
             lblSourceName.DataBindings.Add(new Binding("Text", bdsQuestions, "Source.Source"));
+            this.TextChangedComplete += show;
             //this.txtAnswer.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtAnswerExplanation.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
             //this.txtOption1.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtOptionExplanation1.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
 
+        }
+        public void show(object sender, EventArgs e)
+        {
+            MessageBox.Show("ss");
         }
 
 
@@ -231,6 +279,37 @@ namespace EnglishTester
         private void SelectSourceCancel()
         {
             searchBox.Hide();
+        }
+
+        private void btnAddVocabulary_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(txtAnswer.Text))
+            {
+                _currentQuestion.Vocabulary = new Vocabulary(txtAnswer.Text);
+                vocabularyBLL.Add(_currentQuestion.Vocabulary);
+            }
+        }
+
+        private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs args)
+        {
+            this._timer.Stop();
+            this.BeginInvoke(new MethodInvoker(this.txtAnswer_TextChangedComplete));
+        }
+        public event EventHandler<EventArgs> TextChangedComplete;
+        private void txtAnswer_TextChangedComplete()
+        {
+            this.TextChangedComplete?.Invoke(this, new EventArgs());
+        }
+
+        private void txtAnswer_TextChanged(object sender, EventArgs e)
+        {
+            if (!this._timer.Enabled)
+                this._timer.Start();
+            else
+            {
+                this._timer.Stop();
+                this._timer.Start();
+            }
         }
     }
 }

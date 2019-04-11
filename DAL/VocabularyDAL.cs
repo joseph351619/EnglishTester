@@ -13,26 +13,32 @@ namespace EnglishTester.DAL
         //{
         //    Data = Data.Where(a => a.QuestionNo == questionNo);
         //}
-        public void GetOrAdd(Vocabulary vocabulary)
+        //public void GetOrAdd(Vocabulary vocabulary)
+        //{
+        //    Vocabulary existVocabulary = Read(a => a.Word == vocabulary.Word);
+        //    if (existVocabulary == null)
+        //    {
+        //        Add(vocabulary);
+        //        Save();
+        //    }
+        //    else
+        //        vocabulary.ID = existVocabulary.ID;
+        //}
+        public List<Vocabulary> SearchVocabulary(string words)
         {
-            Vocabulary existVocabulary = Read(a => a.Word == vocabulary.Word);
-            if (existVocabulary == null)
-            {
-                Add(vocabulary);
-                Save();
-            }
-            else
-                vocabulary.ID = existVocabulary.ID;
+            Reads();
+            Data = Data.Where(a => a.Word.Contains(words));
+            return Data.ToList();
         }
-        //public bool IsExist(string word)
-        //{
-        //    return (Data.Where(a => a.Word == word).Count() > 0) ? true : false;
-        //}
-        //public override bool IsValidated(Vocabulary vocabulary)
-        //{
-        //    bool isValidated = false;
-        //    isValidated = !IsExist(vocabulary.Word);
-        //    return isValidated;
-        //}
+        public bool IsExist(string word)
+        {
+            return (Data.Where(a => a.Word == word).Count() > 0) ? true : false;
+        }
+        public override bool IsValidated(Vocabulary vocabulary)
+        {
+            bool isValidated = false;
+            isValidated = !IsExist(vocabulary.Word);
+            return isValidated;
+        }
     }
 }

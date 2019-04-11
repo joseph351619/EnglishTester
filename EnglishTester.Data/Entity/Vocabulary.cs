@@ -24,6 +24,7 @@ namespace EnglishTester.Data
             get { return word; }
             set { word = value.Trim(); }
         }
+        public int? OriginID { get; set; }
         public virtual ICollection<Questions> Questions { get; set; }
         public virtual ICollection<Explanations> Explanations { get; set; }
     }

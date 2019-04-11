@@ -70,6 +70,7 @@
             this.lblInsertTime = new System.Windows.Forms.Label();
             this.lblSourceName = new System.Windows.Forms.Label();
             this.btnSelectSource = new System.Windows.Forms.Button();
+            this.btnAddVocabulary = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.bdsQuestions)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bdnQuestions)).BeginInit();
             this.bdnQuestions.SuspendLayout();
@@ -107,6 +108,7 @@
             this.txtAnswer.Name = "txtAnswer";
             this.txtAnswer.Size = new System.Drawing.Size(183, 22);
             this.txtAnswer.TabIndex = 3;
+            this.txtAnswer.TextChanged += new System.EventHandler(this.txtAnswer_TextChanged);
             // 
             // txtOption1
             // 
@@ -273,7 +275,7 @@
             // bindingNavigatorCountItem
             // 
             this.bindingNavigatorCountItem.Name = "bindingNavigatorCountItem";
-            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(27, 22);
+            this.bindingNavigatorCountItem.Size = new System.Drawing.Size(28, 22);
             this.bindingNavigatorCountItem.Text = "/{0}";
             this.bindingNavigatorCountItem.ToolTipText = "項目總數";
             // 
@@ -419,11 +421,22 @@
             this.btnSelectSource.UseVisualStyleBackColor = true;
             this.btnSelectSource.Click += new System.EventHandler(this.btnSelectSource_Click);
             // 
+            // btnAddVocabulary
+            // 
+            this.btnAddVocabulary.Location = new System.Drawing.Point(59, 304);
+            this.btnAddVocabulary.Name = "btnAddVocabulary";
+            this.btnAddVocabulary.Size = new System.Drawing.Size(61, 23);
+            this.btnAddVocabulary.TabIndex = 43;
+            this.btnAddVocabulary.Text = "加入單字";
+            this.btnAddVocabulary.UseVisualStyleBackColor = true;
+            this.btnAddVocabulary.Click += new System.EventHandler(this.btnAddVocabulary_Click);
+            // 
             // QuestionInsert
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(806, 517);
+            this.Controls.Add(this.btnAddVocabulary);
             this.Controls.Add(this.btnSelectSource);
             this.Controls.Add(this.lblSourceName);
             this.Controls.Add(this.lblInsertTime);
@@ -505,6 +518,7 @@
         private System.Windows.Forms.Label lblInsertTime;
         private System.Windows.Forms.Label lblSourceName;
         private System.Windows.Forms.Button btnSelectSource;
+        private System.Windows.Forms.Button btnAddVocabulary;
     }
 }
 

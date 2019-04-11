@@ -8,8 +8,17 @@ using System.Threading.Tasks;
 
 namespace EnglishTester.BLL
 {
-    public class VocabularyBLL
+    public class VocabularyBLL : BLLBase<Vocabulary>
     {
+        VocabularyDAL dal = new VocabularyDAL();
+        public VocabularyBLL()
+        {
+            IDAL = dal;
+        }
+        public IEnumerable<Vocabulary> SearchVocabulary(string words)
+        {
+            return dal.SearchVocabulary(words);
+        }
         //public IEnumerable<Vocabulary> GetAnswers(int questionNo)
         //{
         //    using (VocabularyDAL dal = new VocabularyDAL())
