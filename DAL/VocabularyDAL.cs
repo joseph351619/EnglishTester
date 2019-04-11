@@ -37,6 +37,7 @@ namespace EnglishTester.DAL
         public override bool IsValidated(Vocabulary vocabulary)
         {
             bool isValidated = false;
+            Reads();
             isValidated = !IsExist(vocabulary.Word);
             return isValidated;
         }

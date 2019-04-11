@@ -85,6 +85,7 @@ namespace EnglishTester
             searchBox = new SearchBox();
             searchBox.ConfirmEvent += SelectSourceConfirm;
             searchBox.CancelEvent += SelectSourceCancel;
+            btnAddVocabulary.Enabled = false;
         }
         private void TextBoxDataBinding()
         {
@@ -93,16 +94,12 @@ namespace EnglishTester
             this.cboAnswerType.DataBindings.Add(new Binding("Text", bdsQuestions, "Type"));
             this.lblInsertTime.DataBindings.Add(new Binding("Text", bdsQuestions, "InsertTime"));
             lblSourceName.DataBindings.Add(new Binding("Text", bdsQuestions, "Source.Source"));
-            this.TextChangedComplete += show;
+            this.TextChangedComplete += VocabularyAdded;
             //this.txtAnswer.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtAnswerExplanation.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
             //this.txtOption1.DataBindings.Add(new Binding("Answer", _currentOption[0], "Answer"));
             //this.txtOptionExplanation1.DataBindings.Add(new Binding("Explanation", _currentOption[0], "Explanation"));
 
-        }
-        public void show(object sender, EventArgs e)
-        {
-            MessageBox.Show("ss");
         }
 
 
@@ -220,6 +217,10 @@ namespace EnglishTester
             this._currentOption = answersBLL.GetOptions(_currentQuestion.NO).ToList();
             if (_currentOption == null || _currentOption.Count() == 0)
                 return;
+            //if( _currentQuestion.VocabularyID == null && string.IsNullOrEmpty(txtAnswer.Text))
+            //{
+            //    btnAddVocabulary.Enabled = true;
+            //}
             txtAnswer.Text = _currentOption.Where(a => a.IsAnswer).FirstOrDefault().Content;
             txtAnswerExplanation.Text = _currentOption.Where(a => a.IsAnswer).FirstOrDefault().Explanation;
             var options = _currentOption.Where(a => !a.IsAnswer).ToList();
@@ -287,13 +288,24 @@ namespace EnglishTester
             {
                 _currentQuestion.Vocabulary = new Vocabulary(txtAnswer.Text);
                 vocabularyBLL.Add(_currentQuestion.Vocabulary);
+                _currentQuestion.VocabularyID = _currentQuestion.Vocabulary.ID;
+                btnAddVocabulary.Enabled = false;
             }
         }
 
         private void timer_Elapsed(object sender, System.Timers.ElapsedEventArgs args)
         {
             this._timer.Stop();
+            //VocabularyAdded();
             this.BeginInvoke(new MethodInvoker(this.txtAnswer_TextChangedComplete));
+        }
+        private void VocabularyAdded(object sender, EventArgs e)
+        {
+            Vocabulary vocabulary = vocabularyBLL.Read(a => a.Word == txtAnswer.Text);
+            if (vocabulary != null)
+                btnAddVocabulary.Enabled = false;
+            else
+                btnAddVocabulary.Enabled = true;
         }
         public event EventHandler<EventArgs> TextChangedComplete;
         private void txtAnswer_TextChangedComplete()
@@ -303,12 +315,19 @@ namespace EnglishTester
 
         private void txtAnswer_TextChanged(object sender, EventArgs e)
         {
-            if (!this._timer.Enabled)
-                this._timer.Start();
+            if (!string.IsNullOrEmpty(txtAnswer.Text))
+            {
+                if (!this._timer.Enabled)
+                    this._timer.Start();
+                else
+                {
+                    this._timer.Stop();
+                    this._timer.Start();
+                }
+            }
             else
             {
-                this._timer.Stop();
-                this._timer.Start();
+                btnAddVocabulary.Enabled = false;
             }
         }
     }
